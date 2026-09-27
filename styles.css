@@ -1,6 +1,6 @@
 /* ==========================================================================
    FOR AARTI ❤️ | ULTRA-FAST ZERO-LAG LUXURY STYLESHEET
-   100% Hardware Accelerated, No Compositor Lockups, Instant 60fps Paint
+   100% Mobile Responsive, No Horizontal Overflow, Zero Layout Shift
    ========================================================================== */
 
 :root {
@@ -49,17 +49,22 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   background-color: var(--bg-color);
   background-image: var(--bg-gradient);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.75;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -82,8 +87,8 @@ body {
 /* Floating Audio Widget */
 .floating-audio-widget {
   position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 1rem;
+  right: 1rem;
   z-index: 99;
 }
 
@@ -91,14 +96,14 @@ body {
   background: rgba(22, 18, 33, 0.95);
   border: 1px solid var(--card-border);
   color: var(--text-secondary);
-  padding: 0.55rem 1.1rem;
+  padding: 0.5rem 0.95rem;
   border-radius: var(--radius-full);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -112,13 +117,13 @@ body {
 .sound-wave {
   display: flex;
   align-items: flex-end;
-  gap: 2.5px;
-  height: 14px;
+  gap: 2px;
+  height: 12px;
 }
 
 .sound-wave i {
   display: block;
-  width: 2.5px;
+  width: 2px;
   background: var(--rose-primary);
   border-radius: 1px;
   height: 4px;
@@ -132,7 +137,7 @@ body {
 
 @keyframes waveAnim {
   0%, 100% { height: 3px; }
-  50% { height: 14px; }
+  50% { height: 12px; }
 }
 
 /* Scroll Progress Line */
@@ -153,15 +158,20 @@ body {
 .page-wrapper {
   position: relative;
   z-index: 10;
+  width: 100%;
+  max-width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 5rem;
+  overflow-x: clip;
 }
 
 .section-container {
+  width: 100%;
   max-width: 920px;
   margin: 0 auto;
   padding: 4.5rem 1.5rem;
   position: relative;
+  overflow: visible;
 }
 
 .relive-wide-section {
@@ -173,6 +183,7 @@ body {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
+  width: 100%;
 }
 
 .script-tag {
@@ -190,11 +201,12 @@ body {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.25;
   color: var(--text-primary);
+  word-wrap: break-word;
 }
 
 .gradient-rose-text {
@@ -227,32 +239,36 @@ body {
   text-align: center;
   padding: 3rem 1.5rem;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* Clips aurora glows exactly to hero boundaries */
 }
 
 .hero-aurora-glow {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
   border-radius: 50%;
   pointer-events: none;
   opacity: 0.25;
-  will-change: transform;
 }
 
 .glow-top-left {
-  top: -50px;
-  left: -80px;
-  background: radial-gradient(circle, var(--rose-glow) 0%, transparent 70%);
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 20% 20%, var(--rose-glow) 0%, transparent 70%);
 }
 
 .glow-bottom-right {
-  bottom: -30px;
-  right: -80px;
-  background: radial-gradient(circle, var(--gold-accent) 0%, transparent 70%);
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle at 80% 80%, var(--gold-accent) 0%, transparent 70%);
 }
 
 .hero-content {
   max-width: 800px;
+  width: 100%;
   position: relative;
   z-index: 2;
 }
@@ -260,16 +276,17 @@ body {
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.35rem 1.1rem;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   background: rgba(244, 114, 182, 0.1);
   border: 1px solid rgba(244, 114, 182, 0.3);
   color: var(--rose-primary);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   margin-bottom: 1.8rem;
+  max-width: 100%;
 }
 
 .badge-sparkle {
@@ -279,12 +296,13 @@ body {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.01em;
   margin-bottom: 1.4rem;
   color: var(--text-primary);
+  word-wrap: break-word;
 }
 
 .pulsing-heart-hero {
@@ -303,14 +321,14 @@ body {
 .hero-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
   color: var(--text-secondary);
   line-height: 1.4;
   margin-bottom: 1.4rem;
 }
 
 .hero-intro-note {
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 650px;
   margin: 0 auto 2.5rem;
@@ -320,15 +338,17 @@ body {
 .hero-actions {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .btn-primary-hero {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   background: linear-gradient(135deg, var(--rose-primary), var(--rose-secondary));
   color: #fff;
-  padding: 0.95rem 2.3rem;
+  padding: 0.95rem 2.2rem;
   border-radius: var(--radius-full);
   text-decoration: none;
   font-weight: 600;
@@ -336,6 +356,7 @@ body {
   letter-spacing: 0.03em;
   box-shadow: 0 8px 25px rgba(244, 114, 182, 0.35);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  max-width: 100%;
 }
 
 .btn-primary-hero:hover {
@@ -345,6 +366,7 @@ body {
 
 .arrow-icon {
   animation: bounceDown 2s infinite ease-in-out;
+  flex-shrink: 0;
 }
 
 @keyframes bounceDown {
@@ -354,13 +376,13 @@ body {
 
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 1.8rem;
+  bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -395,6 +417,7 @@ body {
    2. APOLOGY SECTION
    ========================================================================== */
 .confession-envelope-card {
+  width: 100%;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
@@ -432,6 +455,7 @@ body {
   flex-direction: column;
   gap: 1.1rem;
   margin-bottom: 2.2rem;
+  width: 100%;
 }
 
 .confession-point-item {
@@ -443,6 +467,7 @@ body {
   padding: 1.1rem 1.4rem;
   border-radius: var(--radius-md);
   transition: transform var(--transition-fast);
+  width: 100%;
 }
 
 .confession-point-item:hover {
@@ -454,10 +479,11 @@ body {
   color: var(--rose-primary);
   font-size: 1.25rem;
   line-height: 1.4;
+  flex-shrink: 0;
 }
 
 .point-text {
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -468,6 +494,8 @@ body {
   padding: 1.8rem 1.8rem 1.6rem 2.2rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .quote-mark-left {
@@ -478,10 +506,11 @@ body {
   font-size: 4rem;
   color: rgba(244, 114, 182, 0.18);
   line-height: 1;
+  pointer-events: none;
 }
 
 .confession-realization-quote p {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   color: var(--text-primary);
   line-height: 1.8;
   margin-bottom: 1rem;
@@ -508,11 +537,13 @@ body {
   padding: 1.1rem 1.8rem;
   border-radius: var(--radius-md);
   text-align: left;
+  width: 100%;
 }
 
 .humility-icon {
   font-size: 1.5rem;
   color: var(--gold-accent);
+  flex-shrink: 0;
 }
 
 .humility-text {
@@ -535,6 +566,8 @@ body {
   padding: 2.2rem;
   margin-bottom: 3.2rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  overflow: hidden;
 }
 
 .memory-image-container {
@@ -544,6 +577,8 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   aspect-ratio: 16 / 10;
   background: #110e19;
+  width: 100%;
+  max-width: 100%;
 }
 
 .cinematic-photo {
@@ -574,6 +609,7 @@ body {
   font-size: 0.82rem;
   color: #fff;
   font-weight: 500;
+  max-width: calc(100% - 2rem);
 }
 
 .badge-dot {
@@ -581,12 +617,14 @@ body {
   height: 6px;
   border-radius: 50%;
   background: var(--rose-primary);
+  flex-shrink: 0;
 }
 
 .memory-narrative-card {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  width: 100%;
 }
 
 .narrative-ribbon {
@@ -600,6 +638,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  width: 100%;
 }
 
 .narrative-para {
@@ -628,6 +667,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
 .trio-card {
@@ -637,6 +677,7 @@ body {
   padding: 2rem 1.6rem;
   position: relative;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
+  width: 100%;
 }
 
 .trio-card:hover {
@@ -693,6 +734,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.3rem;
+  width: 100%;
 }
 
 .echo-note-tile {
@@ -702,6 +744,8 @@ body {
   padding: 1.6rem 1.4rem;
   position: relative;
   transition: border-color var(--transition-fast), transform var(--transition-fast);
+  width: 100%;
+  overflow: hidden;
 }
 
 .echo-note-tile:hover {
@@ -711,10 +755,10 @@ body {
 
 .tape-corner {
   position: absolute;
-  top: -7px;
-  left: 18px;
-  width: 40px;
-  height: 14px;
+  top: -6px;
+  left: 15px;
+  width: 38px;
+  height: 12px;
   background: rgba(255, 255, 255, 0.15);
   transform: rotate(-3deg);
   border-radius: 2px;
@@ -741,8 +785,10 @@ body {
   padding: 10px 10px 18px 10px;
   border-radius: 4px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-  transform: rotate(2deg);
+  transform: rotate(1deg);
   transition: transform var(--transition-fast);
+  width: 100%;
+  max-width: 100%;
 }
 
 .polaroid-feature-frame:hover {
@@ -754,6 +800,7 @@ body {
   border-radius: 2px;
   aspect-ratio: 4 / 3;
   background: #eee;
+  width: 100%;
 }
 
 .polaroid-real-img {
@@ -795,6 +842,7 @@ body {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
   border: 1px solid var(--card-border);
   background: #0e0c15;
+  width: 100%;
 }
 
 .relive-background-art {
@@ -819,6 +867,7 @@ body {
   position: relative;
   z-index: 2;
   max-width: 600px;
+  width: 100%;
   padding: 3rem;
 }
 
@@ -834,6 +883,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
 }
 
 .relive-para-intro {
@@ -871,10 +921,12 @@ body {
   border-radius: var(--radius-xl);
   padding: 3.2rem 2.5rem;
   max-width: 720px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
 .fragment-inner-glow {
@@ -882,8 +934,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
   background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -913,6 +966,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 0.9rem;
   max-width: 460px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -929,6 +983,7 @@ body {
   font-size: 1.12rem;
   color: var(--text-primary);
   transition: background var(--transition-fast);
+  width: 100%;
 }
 
 .vow-line-item:hover {
@@ -938,6 +993,7 @@ body {
 
 .vow-heart {
   color: var(--rose-primary);
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -951,6 +1007,7 @@ body {
   padding: 1.6rem 1.8rem;
   border-radius: var(--radius-lg);
   max-width: 680px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -972,6 +1029,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  width: 100%;
 }
 
 .pillar-glass-card {
@@ -983,6 +1041,7 @@ body {
   flex-direction: column;
   gap: 0.7rem;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
+  width: 100%;
 }
 
 .pillar-glass-card:hover {
@@ -999,6 +1058,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .pillar-tag {
@@ -1043,17 +1103,18 @@ body {
   border-radius: var(--radius-xl);
   padding: 3rem 2.5rem;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Ensures inner glows never spill outside */
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  width: 100%;
 }
 
 .sanctuary-aurora {
   position: absolute;
-  top: -50%;
-  right: -50%;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
+  background: radial-gradient(circle at 100% 0%, var(--card-glow) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1078,6 +1139,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 1.3rem;
   margin-bottom: 2.5rem;
+  width: 100%;
 }
 
 .promise-item-tile {
@@ -1089,6 +1151,7 @@ body {
   padding: 1.2rem 1.4rem;
   border-radius: var(--radius-md);
   transition: transform var(--transition-fast);
+  width: 100%;
 }
 
 .promise-item-tile:hover {
@@ -1099,6 +1162,7 @@ body {
 .promise-heart {
   color: var(--rose-primary);
   font-size: 1.15rem;
+  flex-shrink: 0;
 }
 
 .promise-item-tile p {
@@ -1113,6 +1177,7 @@ body {
   border: 1px solid rgba(244, 114, 182, 0.25);
   padding: 1.8rem;
   border-radius: var(--radius-lg);
+  width: 100%;
 }
 
 .sanctuary-solemn-pledge p {
@@ -1128,6 +1193,7 @@ body {
    ========================================================================== */
 .vintage-parchment-sheet {
   max-width: 650px;
+  width: 100%;
   margin: 0 auto;
   background: #faf6ee;
   color: #2b211e;
@@ -1136,12 +1202,13 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.08);
   position: relative;
   font-family: var(--font-serif);
+  overflow: visible;
 }
 
 .letter-wax-seal-badge {
   position: absolute;
   top: -22px;
-  right: 35px;
+  right: 25px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -1156,8 +1223,8 @@ body {
 }
 
 .wax-seal-ring {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #e11d48, #9f1239, #4c0519);
   box-shadow: 0 4px 12px rgba(0,0,0,0.35);
@@ -1169,7 +1236,7 @@ body {
 
 .wax-letter {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #fff1f2;
 }
@@ -1236,10 +1303,12 @@ body {
   border-radius: var(--radius-xl);
   padding: 3.5rem 2.5rem;
   max-width: 780px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   text-align: center;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
 }
 
 .epilogue-lines-wrapper {
@@ -1247,6 +1316,7 @@ body {
   flex-direction: column;
   gap: 1.3rem;
   margin-bottom: 3rem;
+  width: 100%;
 }
 
 .line-truth {
@@ -1274,6 +1344,7 @@ body {
   padding: 1.6rem;
   border-radius: var(--radius-lg);
   max-width: 520px;
+  width: 100%;
   margin: 1.3rem auto 0;
 }
 
@@ -1284,7 +1355,7 @@ body {
   font-family: var(--font-serif);
   font-size: 1.2rem;
   color: var(--gold-accent);
-  margin: 0 0.7rem 0.4rem;
+  margin: 0 0.5rem 0.4rem;
 }
 
 .peace-dot {
@@ -1292,6 +1363,7 @@ body {
   height: 5px;
   border-radius: 50%;
   background: var(--gold-accent);
+  flex-shrink: 0;
 }
 
 .peace-concluding-text {
@@ -1303,6 +1375,7 @@ body {
 .epilogue-final-apology {
   padding-top: 2.2rem;
   border-top: 1px solid var(--card-border);
+  width: 100%;
 }
 
 .final-apology-heading {
@@ -1311,6 +1384,7 @@ body {
   font-weight: 600;
   color: var(--rose-primary);
   margin-bottom: 0.4rem;
+  word-wrap: break-word;
 }
 
 .final-respect-note {
@@ -1328,6 +1402,7 @@ body {
   border-radius: var(--radius-xl);
   padding: 4rem 2.5rem;
   max-width: 740px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -1338,11 +1413,10 @@ body {
 .open-door-glow {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 350px;
-  height: 200px;
-  background: radial-gradient(circle, var(--card-glow) 0%, transparent 70%);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, var(--card-glow) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1363,10 +1437,11 @@ body {
 .cta-comfort-box {
   background: rgba(255, 255, 255, 0.03);
   display: inline-block;
-  padding: 0.75rem 1.6rem;
+  padding: 0.75rem 1.4rem;
   border-radius: var(--radius-full);
   margin-bottom: 2.2rem;
   border: 1px solid var(--card-border);
+  max-width: 100%;
 }
 
 .cta-comfort-box p {
@@ -1374,20 +1449,28 @@ body {
   color: var(--text-muted);
 }
 
+.cta-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .romantic-action-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: center;
+  gap: 0.7rem;
   background: linear-gradient(135deg, var(--rose-primary), var(--rose-secondary), var(--rose-glow));
   color: #fff;
-  padding: 1.1rem 2.6rem;
+  padding: 1rem 2rem;
   border-radius: var(--radius-full);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   letter-spacing: 0.02em;
   box-shadow: 0 8px 30px rgba(244, 114, 182, 0.4);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  max-width: 100%;
 }
 
 .romantic-action-button:hover {
@@ -1396,7 +1479,8 @@ body {
 }
 
 .btn-icon-leading {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .cta-whisper-foot {
@@ -1411,6 +1495,7 @@ body {
   margin-top: 2.8rem;
   padding-top: 1.8rem;
   border-top: 1px solid var(--card-border);
+  width: 100%;
 }
 
 .reaction-title {
@@ -1425,16 +1510,17 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  width: 100%;
 }
 
 .reaction-chip {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--card-border);
   color: var(--text-secondary);
-  padding: 0.45rem 1rem;
+  padding: 0.45rem 0.9rem;
   border-radius: var(--radius-full);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: background var(--transition-fast), transform var(--transition-fast);
 }
@@ -1456,13 +1542,15 @@ body {
 
 /* ==========================================================================
    FOOTER
-   ========================================================================== */
+   ========================================================================= */
 .luminous-site-footer {
   text-align: center;
   padding: 3.5rem 1.5rem 2rem;
   border-top: 1px solid var(--card-border);
   position: relative;
   z-index: 10;
+  width: 100%;
+  max-width: 100%;
 }
 
 .footer-floating-heart {
@@ -1518,23 +1606,102 @@ body {
 }
 
 @media (max-width: 768px) {
+  .section-container {
+    padding: 3.5rem 1rem;
+  }
+
+  .hero-section {
+    padding: 2.5rem 1rem;
+    min-height: 80vh;
+  }
+
   .hero-title {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-intro-note {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .confession-envelope-card,
   .sanctuary-cathedral-card,
-  .vintage-parchment-sheet,
   .epilogue-night-card,
   .open-door-glass-card {
-    padding: 2.2rem 1.3rem;
+    padding: 2rem 1.1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .vintage-parchment-sheet {
+    padding: 2.8rem 1.2rem 2rem;
+    border-radius: var(--radius-md);
   }
 
   .letter-salutation-line {
     font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .letter-text-paragraph {
+    font-size: 1.08rem;
   }
 
   .letter-wax-seal-badge {
-    right: 18px;
+    right: 15px;
+    top: -18px;
+  }
+
+  .wax-seal-ring {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wax-letter {
+    font-size: 1.15rem;
+  }
+
+  .confession-point-item,
+  .promise-item-tile {
+    padding: 0.95rem 1rem;
+  }
+
+  .confession-realization-quote {
+    padding: 1.2rem 1.2rem 1.2rem 1.4rem;
+  }
+
+  .confession-lead-sentence {
+    font-size: 1.75rem;
+  }
+
+  .romantic-action-button {
+    padding: 0.95rem 1.4rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-container {
+    padding: 3rem 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .confession-envelope-card,
+  .sanctuary-cathedral-card,
+  .epilogue-night-card,
+  .open-door-glass-card,
+  .vintage-parchment-sheet {
+    padding: 1.6rem 0.85rem;
+  }
+
+  .romantic-action-button {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
   }
 }

@@ -1,46 +1,40 @@
 /* ==========================================================
-   AARTI - SOFT ROMANTIC PINK & BLUSH AESTHETIC
-   Dominant Palette: 70% Soft Blush Pink, 20% Darker Rose, 10% Cream/Gold
+   AARTI - HIGH PERFORMANCE SOFT ROMANTIC PINK STYLESHEET
+   Aesthetic: Soft Blush Pink, Darker Rose, Cream & Gold
+   Optimized for sub-second First Contentful Paint & smooth 60fps
    ========================================================== */
 
 :root {
-  /* Core Romantic Pink Colors */
+  /* Core Palette */
   --bg-main: #F4B6CA;
   --bg-hero: linear-gradient(135deg, #FADCE6 0%, #F5C1D2 45%, #EFA8BE 100%);
-  --bg-hero-solid: #F5C1D2;
   --bg-card: rgba(255, 238, 244, 0.78);
   --bg-card-hover: rgba(255, 245, 248, 0.92);
-  --bg-card-deeper: rgba(248, 218, 228, 0.85);
   --bg-note: rgba(255, 240, 246, 0.9);
-  --bg-parchment: #FFF5F8;
-  --bg-polaroid: #FFFFFF;
+  
+  /* Typography Colors */
+  --text-heading: #5A1830;
+  --text-heading-sec: #7A2947;
+  --text-body: #633548;
+  --text-muted: #8E4E67;
+  --text-romantic: #B83E68;
+  --text-gold: #B88935;
 
-  /* Typography Colors (Dark Rose for high readability on pink) */
-  --text-heading: #5A1830;        /* Deep romantic wine rose */
-  --text-heading-sec: #7A2947;    /* Secondary heading rose */
-  --text-body: #633548;           /* Elegant readable dark rose body */
-  --text-muted: #8E4E67;          /* Muted rose for subtext */
-  --text-romantic: #B83E68;       /* Highlighted emotional pink */
-  --text-cream: #FFF4F0;          /* Warm cream for deeper rose cards */
-  --text-gold: #B88935;           /* Rich muted gold accent */
-
-  /* Button & Accent Colors */
+  /* Button & Heart */
   --btn-primary: #D94F78;
-  --btn-hover: #C43C64;
+  --btn-hover: #C43F68;
   --btn-text: #FFFFFF;
   --heart-color: #E84D72;
 
-  /* Border Colors */
+  /* Borders */
   --border-subtle: rgba(184, 62, 104, 0.20);
   --border-glow: rgba(217, 79, 120, 0.45);
-  --border-gold: rgba(184, 137, 53, 0.35);
 
-  /* Typography Families */
+  /* Fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-script: 'Caveat', cursive;
   --font-cursive: 'Alex Brush', cursive;
-  --font-display: 'Cinzel', serif;
 
   /* Transitions & Shadows */
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -89,6 +83,7 @@ body {
   height: 4px;
   background: transparent;
   z-index: 1000;
+  pointer-events: none;
 }
 
 .scroll-progress-bar {
@@ -96,7 +91,7 @@ body {
   width: 0%;
   background: linear-gradient(90deg, #D94F78, #E84D72, #FFF4F0);
   box-shadow: 0 0 12px rgba(217, 79, 120, 0.7);
-  transition: width 0.1s ease-out;
+  transition: width 0.08s ease-out;
 }
 
 /* Ambient Canvas Background */
@@ -109,6 +104,7 @@ body {
   pointer-events: none;
   z-index: 1;
   opacity: 0.55;
+  will-change: transform;
 }
 
 /* Audio Widget */
@@ -123,7 +119,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 235, 242, 0.75);
+  background: rgba(255, 235, 242, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(184, 62, 104, 0.25);
@@ -171,7 +167,7 @@ body {
   100% { height: 14px; }
 }
 
-/* Layout Containers */
+/* Layout Containers & Sections */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -181,9 +177,11 @@ body {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 95px 0;
   position: relative;
   z-index: 2;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 /* Section Header Typography */
@@ -233,21 +231,20 @@ body {
   width: 70px;
 }
 
-/* Background Watermark in Apology Section */
 .section-bg-watermark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-script);
-  font-size: 28rem;
-  color: rgba(255, 255, 255, 0.15);
+  font-size: 26rem;
+  color: rgba(255, 255, 255, 0.12);
   pointer-events: none;
   z-index: 1;
 }
 
 /* ==========================================================
-   1. HERO SECTION (LIGHT BLUSH PINK)
+   1. HERO SECTION
    ========================================================== */
 .hero-section {
   min-height: 100vh;
@@ -259,6 +256,7 @@ body {
   padding: 130px 24px 80px;
   background: var(--bg-hero);
   overflow: hidden;
+  content-visibility: visible;
 }
 
 .hero-glow {
@@ -270,8 +268,8 @@ body {
 }
 
 .hero-glow-1 {
-  width: 500px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   top: 10%;
   left: 15%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(245, 193, 210, 0) 70%);
@@ -279,8 +277,8 @@ body {
 }
 
 .hero-glow-2 {
-  width: 450px;
-  height: 450px;
+  width: 420px;
+  height: 420px;
   bottom: 15%;
   right: 15%;
   background: radial-gradient(circle, rgba(232, 77, 114, 0.15) 0%, rgba(245, 193, 210, 0) 70%);
@@ -289,7 +287,7 @@ body {
 
 @keyframes floatGlow {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(30px, -30px) scale(1.1); }
+  100% { transform: translate(25px, -25px) scale(1.08); }
 }
 
 .hero-badge {
@@ -376,7 +374,6 @@ body {
   background: var(--btn-hover);
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(217, 79, 120, 0.45);
-  color: #FFFFFF;
 }
 
 .scroll-arrow {
@@ -399,7 +396,7 @@ body {
 }
 
 /* ==========================================================
-   2. APOLOGY SECTION (WARM ROSE PINK / CREAM)
+   2. APOLOGY SECTION
    ========================================================== */
 .apology-section {
   background: linear-gradient(180deg, rgba(244, 182, 202, 0.3) 0%, rgba(248, 201, 216, 0.5) 100%);
@@ -407,8 +404,8 @@ body {
 
 .confession-letter-card {
   background: var(--bg-card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: 24px;
   padding: 50px 45px;
@@ -518,11 +515,10 @@ body {
   font-size: 0.96rem;
   color: var(--text-muted);
   line-height: 1.6;
-  font-weight: 400;
 }
 
 /* ==========================================================
-   3. DO YOU REMEMBER SECTION (SOFT DUSTY PINK)
+   3. DO YOU REMEMBER SECTION
    ========================================================== */
 .memory-section {
   background: linear-gradient(180deg, rgba(248, 201, 216, 0.5) 0%, rgba(243, 189, 206, 0.4) 100%);
@@ -533,8 +529,8 @@ body {
   grid-template-columns: 1.1fr 1fr;
   align-items: stretch;
   background: var(--bg-card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: 24px;
   margin-bottom: 45px;
@@ -551,7 +547,7 @@ body {
 
 .memory-photo-frame {
   position: relative;
-  min-height: 420px;
+  min-height: 400px;
   overflow: hidden;
 }
 
@@ -560,11 +556,12 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cinematic-memory-card:hover .memory-image {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .photo-gradient-vignette {
@@ -582,7 +579,7 @@ body {
   position: absolute;
   top: 18px;
   left: 18px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
   padding: 6px 16px;
   border-radius: 20px;
@@ -643,7 +640,7 @@ body {
 .romantic-memory-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 26px;
+  gap: 24px;
   margin-top: 20px;
 }
 
@@ -662,7 +659,7 @@ body {
 .memory-note-card.tilt-right { transform: rotate(1deg); }
 
 .memory-note-card:hover {
-  transform: translateY(-6px) scale(1.02) rotate(0deg);
+  transform: translateY(-5px) scale(1.02) rotate(0deg);
   border-color: var(--border-glow);
   box-shadow: var(--shadow-card-hover);
   background: var(--bg-card-hover);
@@ -835,7 +832,7 @@ body {
 }
 
 /* ==========================================================
-   5. CINEMATIC FEATURE: "IF I COULD RELIVE ONE DAY" (WARM DEEP ROSE)
+   5. CINEMATIC FEATURE: "IF I COULD RELIVE ONE DAY"
    ========================================================== */
 .relive-day-section {
   background: linear-gradient(180deg, rgba(248, 213, 223, 0.6) 0%, rgba(245, 197, 212, 0.4) 100%);
@@ -845,7 +842,7 @@ body {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  min-height: 480px;
+  min-height: 460px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -920,7 +917,7 @@ body {
 }
 
 /* ==========================================================
-   6. LETTER FRAGMENT CARD ("IF I COULD GO BACK...")
+   6. LETTER FRAGMENT CARD
    ========================================================== */
 .relive-letter-section {
   background: linear-gradient(180deg, rgba(245, 197, 212, 0.4) 0%, rgba(249, 217, 227, 0.6) 100%);
@@ -991,7 +988,7 @@ body {
 }
 
 /* ==========================================================
-   7. GROWTH & INTENTIONS SECTION (BLUSH PINK)
+   7. GROWTH & INTENTIONS SECTION
    ========================================================== */
 .growth-section {
   background: linear-gradient(180deg, rgba(249, 217, 227, 0.6) 0%, rgba(246, 207, 220, 0.5) 100%);
@@ -1080,10 +1077,6 @@ body {
   margin-bottom: 10px;
 }
 
-.intention-tag-small.gold {
-  color: var(--text-gold);
-}
-
 .intention-note-card h3 {
   font-family: var(--font-serif);
   font-size: 1.45rem;
@@ -1101,7 +1094,7 @@ body {
 }
 
 /* ==========================================================
-   8. SECURITY SECTION (WARM BLUSH PINK)
+   8. SECURITY SECTION
    ========================================================== */
 .security-section {
   background: linear-gradient(180deg, rgba(246, 207, 220, 0.5) 0%, rgba(247, 213, 223, 0.6) 100%);
@@ -1109,8 +1102,8 @@ body {
 
 .sanctuary-letter-card {
   background: var(--bg-card);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: 24px;
   padding: 55px 45px;
@@ -1190,7 +1183,7 @@ body {
 }
 
 /* ==========================================================
-   9. HANDWRITTEN APOLOGY LETTER (WARM CREAM / PALE PINK)
+   9. HANDWRITTEN APOLOGY LETTER
    ========================================================== */
 .letter-section {
   background: linear-gradient(180deg, rgba(247, 213, 223, 0.6) 0%, rgba(243, 185, 203, 0.5) 100%);
@@ -1290,14 +1283,14 @@ body {
 }
 
 /* ==========================================================
-   10. ENDING / EPILOGUE SECTION (DEEPER ROMANTIC PINK)
+   10. ENDING / EPILOGUE SECTION
    ========================================================== */
 .ending-section {
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 90px 0 110px;
+  padding: 85px 0 100px;
   background: linear-gradient(180deg, #A94263 0%, #8F3655 100%);
 }
 
@@ -1317,8 +1310,8 @@ body {
   margin: 0 auto;
   text-align: center;
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 24px;
   box-shadow: 0 20px 50px rgba(80, 20, 45, 0.35);
@@ -1394,7 +1387,7 @@ body {
    11. FINAL CTA SECTION (MESSAGE ME)
    ========================================================== */
 .cta-section {
-  padding: 100px 0 110px;
+  padding: 95px 0 105px;
   background: linear-gradient(180deg, rgba(248, 201, 216, 0.4) 0%, rgba(245, 185, 205, 0.6) 100%);
   position: relative;
   text-align: center;
@@ -1406,8 +1399,8 @@ body {
 
 .cta-card {
   background: rgba(255, 245, 248, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(217, 79, 120, 0.35);
   border-radius: 28px;
   padding: 60px 45px;
@@ -1542,13 +1535,13 @@ body {
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUpAnim 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.3s; }
-.delay-3 { animation-delay: 0.45s; }
-.delay-4 { animation-delay: 0.6s; }
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.48s; }
 
 @keyframes fadeInUpAnim {
   to {
@@ -1559,8 +1552,8 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -1578,8 +1571,8 @@ body {
   }
   
   .memory-photo-frame {
-    min-height: 280px;
-    max-height: 360px;
+    min-height: 260px;
+    max-height: 340px;
   }
 
   .photo-gradient-vignette {
@@ -1599,11 +1592,11 @@ body {
 
 @media (max-width: 600px) {
   .section {
-    padding: 75px 0;
+    padding: 70px 0;
   }
 
   .hero-section {
-    padding: 110px 20px 50px;
+    padding: 100px 20px 45px;
   }
 
   .confession-letter-card,
@@ -1612,7 +1605,7 @@ body {
   .ending-quiet-card,
   .memory-story-box,
   .letter-fragment-card {
-    padding: 35px 20px;
+    padding: 32px 18px;
     border-radius: 18px;
   }
 

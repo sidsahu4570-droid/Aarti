@@ -11,10 +11,14 @@
   <meta property="og:description" content="A sincere message from someone who truly understands and cares.">
   <meta property="og:type" content="website">
 
-  <!-- Google Fonts -->
+  <!-- Resource Hints for High Speed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Alex+Brush&family=Caveat:wght@400;500;600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- Optimized Google Fonts with display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600&family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Favicon icon (Heart) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
@@ -150,7 +154,10 @@
         <!-- Main Cinematic Ride Memory -->
         <div class="cinematic-memory-card reveal">
           <div class="memory-photo-frame">
-            <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="memory-image" loading="lazy">
+            <picture>
+              <source srcset="assets/bike-memory.webp" type="image/webp">
+              <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="memory-image" loading="lazy" decoding="async" width="800" height="450">
+            </picture>
             <div class="photo-gradient-vignette"></div>
             <div class="photo-caption-tag">
               <span>Our rides together ♡</span>
@@ -267,7 +274,10 @@
           <!-- Polaroid Memory Card -->
           <div class="polaroid-card">
             <div class="polaroid-photo-wrapper">
-              <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-photo" loading="lazy">
+              <picture>
+                <source srcset="assets/relive-day.webp" type="image/webp">
+                <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-photo" loading="lazy" decoding="async" width="400" height="225">
+              </picture>
             </div>
             <div class="polaroid-caption">
               <h4>A moment I wish I could pause.</h4>
@@ -282,7 +292,10 @@
     <section class="section relive-day-section">
       <div class="container">
         <div class="relive-cinematic-backdrop reveal">
-          <img src="assets/relive-day.jpg" alt="Scenic coastal road at dusk" class="relive-bg-img" loading="lazy">
+          <picture>
+            <source srcset="assets/relive-day.webp" type="image/webp">
+            <img src="assets/relive-day.jpg" alt="Scenic coastal road at dusk" class="relive-bg-img" loading="lazy" decoding="async" width="1200" height="675">
+          </picture>
           <div class="relive-overlay"></div>
           
           <div class="relive-content">
@@ -567,6 +580,6 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

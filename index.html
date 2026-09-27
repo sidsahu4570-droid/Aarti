@@ -11,36 +11,18 @@
   <meta property="og:description" content="A sincere message from someone who truly understands and cares.">
   <meta property="og:type" content="website">
 
-  <!-- Performance Diagnostic -->
-  <script>
-    console.time("PAGE_LOAD");
-    document.addEventListener("DOMContentLoaded", () => {
-      console.timeEnd("PAGE_LOAD");
-    });
-  </script>
-
-  <!-- High-Speed Resource Hints -->
+  <!-- Non-blocking Google Fonts with instant fallback -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-  <!-- Asynchronous Non-blocking Google Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
-  <link rel="stylesheet" href="styles.css?v=2026.1">
+  <link rel="stylesheet" href="styles.css?v=2026.2">
 </head>
-<body data-theme="midnight">
+<body>
 
   <!-- Ambient Interactive Canvas for Floating Petals & Stardust -->
   <canvas id="ambientCanvas"></canvas>
-
-  <!-- Glowing Cursor Follower -->
-  <div class="cursor-glow" id="cursorGlow"></div>
 
   <!-- Floating Ambient Audio Widget -->
   <div class="floating-audio-widget">
@@ -69,19 +51,19 @@
           <span class="badge-sparkle">✦</span>
         </div>
 
-        <h1 class="hero-title animate-fade-up delay-1">
+        <h1 class="hero-title animate-fade-up">
           For Aarti <span class="pulsing-heart-hero">❤️</span>
         </h1>
 
-        <p class="hero-subtitle animate-fade-up delay-2">
+        <p class="hero-subtitle animate-fade-up">
           There are some things I should have said a long time ago.
         </p>
 
-        <p class="hero-intro-note animate-fade-up delay-3">
+        <p class="hero-intro-note animate-fade-up">
           I took time to step back, reflect deeply on where I fell short, and write this with complete honesty, humility, and zero expectations.
         </p>
 
-        <div class="hero-actions animate-fade-up delay-4">
+        <div class="hero-actions animate-fade-up">
           <a href="#apology" class="btn-primary-hero">
             <span>Start Reading</span>
             <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -99,13 +81,13 @@
 
     <!-- 2. APOLOGY SECTION (CONFESSION & ACCOUNTABILITY) -->
     <section id="apology" class="section-container">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">from me to you</div>
         <h2 class="section-title">I'm <span class="gradient-rose-text">Sorry</span>, Aarti.</h2>
         <div class="luxury-divider"></div>
       </div>
 
-      <div class="confession-envelope-card reveal-on-scroll delay-1">
+      <div class="confession-envelope-card">
         <div class="envelope-accent-line"></div>
         <div class="confession-card-body">
           <p class="confession-lead-sentence">
@@ -139,7 +121,7 @@
         </div>
       </div>
 
-      <div class="humility-badge-card reveal-on-scroll delay-2">
+      <div class="humility-badge-card">
         <div class="humility-icon">♡</div>
         <p class="humility-text">
           I don't want to make excuses for my behavior. Acknowledging my shortcomings without deflection is the very least you deserved from me.
@@ -149,18 +131,18 @@
 
     <!-- 3. DO YOU REMEMBER SECTION (BIKE JOURNEY MEMORY) -->
     <section id="memory" class="section-container">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">treasured memories</div>
         <h2 class="section-title">Do You Remember?</h2>
         <div class="luxury-divider"></div>
       </div>
 
       <!-- Main Cinematic Ride Memory -->
-      <div class="cinematic-memory-showcase reveal-on-scroll">
+      <div class="cinematic-memory-showcase">
         <div class="memory-image-container" id="tiltMemoryCard">
           <picture>
-            <source srcset="assets/bike-memory.webp" type="image/webp">
-            <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="cinematic-photo" loading="lazy" decoding="async" width="960" height="536">
+            <source srcset="assets/bike-memory.webp?v=2" type="image/webp">
+            <img src="assets/bike-memory.jpg?v=2" alt="Motorcycle ride memory during sunset" class="cinematic-photo" loading="lazy" decoding="async" width="960" height="536">
           </picture>
           <div class="image-glass-overlay"></div>
           <div class="image-badge-pill">
@@ -193,7 +175,7 @@
       </div>
 
       <!-- 3 Specific Memory Cards -->
-      <div class="trio-memories-grid reveal-on-scroll delay-1">
+      <div class="trio-memories-grid">
         <!-- Memory 1 -->
         <div class="trio-card card-tilt-1">
           <div class="card-shimmer"></div>
@@ -234,13 +216,13 @@
 
     <!-- 4. LITTLE THINGS I STILL REMEMBER -->
     <section class="section-container">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">echoes of us</div>
         <h2 class="section-title">Little Things I Still Remember</h2>
         <div class="luxury-divider"></div>
       </div>
 
-      <div class="echoes-interactive-board reveal-on-scroll">
+      <div class="echoes-interactive-board">
         <div class="echo-note-tile echo-pos-1">
           <div class="tape-corner"></div>
           <h4 class="echo-title">Your hand in mine.</h4>
@@ -276,8 +258,8 @@
           <div class="polaroid-inner-white">
             <div class="polaroid-img-wrapper">
               <picture>
-                <source srcset="assets/relive-day.webp" type="image/webp">
-                <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-real-img" loading="lazy" decoding="async" width="800" height="597">
+                <source srcset="assets/relive-day.webp?v=2" type="image/webp">
+                <img src="assets/relive-day.jpg?v=2" alt="A quiet pause on the road" class="polaroid-real-img" loading="lazy" decoding="async" width="800" height="597">
               </picture>
             </div>
             <div class="polaroid-handwritten-caption">
@@ -291,11 +273,11 @@
 
     <!-- 5. CINEMATIC FEATURE: "IF I COULD RELIVE ONE DAY" -->
     <section id="relive" class="section-container relive-wide-section">
-      <div class="relive-cinematic-stage reveal-on-scroll">
+      <div class="relive-cinematic-stage">
         <div class="relive-background-art">
           <picture>
-            <source srcset="assets/relive-day.webp" type="image/webp">
-            <img src="assets/relive-day.jpg" alt="Scenic road at dusk" class="relive-img" loading="lazy" decoding="async" width="800" height="597">
+            <source srcset="assets/relive-day.webp?v=2" type="image/webp">
+            <img src="assets/relive-day.jpg?v=2" alt="Scenic road at dusk" class="relive-img" loading="lazy" decoding="async" width="800" height="597">
           </picture>
           <div class="relive-backdrop-mask"></div>
         </div>
@@ -320,7 +302,7 @@
 
     <!-- 6. LETTER CARD: "IF I COULD GO BACK..." -->
     <section class="section-container">
-      <div class="fragment-letter-box reveal-on-scroll">
+      <div class="fragment-letter-box">
         <div class="fragment-inner-glow"></div>
         <div class="fragment-header">
           <span class="script-tag">A realization</span>
@@ -355,13 +337,13 @@
 
     <!-- 7. GROWTH & INTENTIONS SECTION -->
     <section id="growth" class="section-container">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">learning & growing</div>
         <h2 class="section-title">I Don't Want To Just Promise. I Want To Prove It.</h2>
         <div class="luxury-divider"></div>
       </div>
 
-      <div class="growth-statement-banner reveal-on-scroll">
+      <div class="growth-statement-banner">
         <p class="statement-first">
           I know saying <em>"I won't be immature anymore"</em> is easy. Anyone can say it.
         </p>
@@ -371,7 +353,7 @@
       </div>
 
       <!-- 6 Intentions Grid -->
-      <div class="growth-pillars-grid reveal-on-scroll delay-1">
+      <div class="growth-pillars-grid">
         <!-- 1. Listening -->
         <div class="pillar-glass-card">
           <div class="pillar-header-row">
@@ -436,13 +418,13 @@
 
     <!-- 8. SECURITY SECTION ("YOU DESERVE PEACE, NOT UNCERTAINTY") -->
     <section id="security" class="section-container">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">safe harbor</div>
         <h2 class="section-title">You deserve <span class="gradient-rose-text">peace</span>, not uncertainty.</h2>
         <div class="luxury-divider"></div>
       </div>
 
-      <div class="sanctuary-cathedral-card reveal-on-scroll">
+      <div class="sanctuary-cathedral-card">
         <div class="sanctuary-aurora"></div>
         <div class="sanctuary-content">
           <p class="sanctuary-opening-lead">
@@ -485,52 +467,47 @@
 
     <!-- 9. HANDWRITTEN APOLOGY LETTER (INTERACTIVE WAX SEAL PARCHMENT) -->
     <section id="letter" class="section-container letter-section-wrapper">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag">unspoken words</div>
         <h2 class="section-title">A letter I should have written sooner.</h2>
         <div class="luxury-divider"></div>
       </div>
 
-      <div class="wax-sealed-letter-experience reveal-on-scroll">
-        <!-- Interactive Letter Envelope Card -->
-        <div class="vintage-parchment-sheet">
-          <div class="parchment-texture-overlay"></div>
-          
-          <div class="letter-wax-seal-badge" id="waxSealBtn" title="Unseal & Read">
-            <div class="wax-seal-ring">
-              <span class="wax-letter">A</span>
-            </div>
-            <span class="wax-label">Click to unseal</span>
+      <div class="vintage-parchment-sheet">
+        <div class="letter-wax-seal-badge" id="waxSealBtn" title="Unseal & Read">
+          <div class="wax-seal-ring">
+            <span class="wax-letter">A</span>
           </div>
+          <span class="wax-label">Click to unseal</span>
+        </div>
 
-          <div class="letter-written-text">
-            <p class="letter-salutation-line">Aarti,</p>
+        <div class="letter-written-text">
+          <p class="letter-salutation-line">Aarti,</p>
 
-            <p class="letter-text-paragraph">I'm sorry.</p>
-            
-            <p class="letter-text-paragraph">Not because I want something from you.</p>
-            
-            <p class="letter-text-paragraph">Not because I expect you to forget what happened.</p>
+          <p class="letter-text-paragraph">I'm sorry.</p>
+          
+          <p class="letter-text-paragraph">Not because I want something from you.</p>
+          
+          <p class="letter-text-paragraph">Not because I expect you to forget what happened.</p>
 
-            <p class="letter-text-paragraph letter-core-highlight">
-              I'm sorry because I understand now that some of my actions hurt someone who meant a lot to me.
-            </p>
+          <p class="letter-text-paragraph letter-core-highlight">
+            I'm sorry because I understand now that some of my actions hurt someone who meant a lot to me.
+          </p>
 
-            <p class="letter-text-paragraph">
-              I was immature in ways I didn't understand at the time. I'm trying to understand them now.
-            </p>
+          <p class="letter-text-paragraph">
+            I was immature in ways I didn't understand at the time. I'm trying to understand them now.
+          </p>
 
-            <p class="letter-text-paragraph">
-              And if I ever get another chance to be in your life, I don't want to convince you with words.
-            </p>
+          <p class="letter-text-paragraph">
+            And if I ever get another chance to be in your life, I don't want to convince you with words.
+          </p>
 
-            <p class="letter-text-paragraph letter-action-emphasis">
-              I want to let my actions speak.
-            </p>
+          <p class="letter-text-paragraph letter-action-emphasis">
+            I want to let my actions speak.
+          </p>
 
-            <div class="letter-author-signature">
-              <span class="sign-name">— Siddharth <span class="sign-heart">♡</span></span>
-            </div>
+          <div class="letter-author-signature">
+            <span class="sign-name">— Siddharth <span class="sign-heart">♡</span></span>
           </div>
         </div>
       </div>
@@ -538,14 +515,13 @@
 
     <!-- 10. ENDING / EPILOGUE SECTION ("ONE LAST THING...") -->
     <section id="ending" class="section-container ending-epilogue-section">
-      <div class="section-header reveal-on-scroll">
+      <div class="section-header">
         <div class="script-tag light-tag">final words</div>
         <h2 class="section-title cinematic-epilogue-title">One Last Thing...</h2>
         <div class="luxury-divider gold-divider"></div>
       </div>
 
-      <div class="epilogue-night-card reveal-on-scroll">
-        <div class="epilogue-ambient-glow"></div>
+      <div class="epilogue-night-card">
         <div class="epilogue-lines-wrapper">
           <div class="epilogue-line-group">
             <p class="line-truth">I can't change the past.</p>
@@ -588,7 +564,7 @@
 
     <!-- 11. FINAL CTA SECTION (MESSAGE ME) -->
     <section id="contact" class="section-container contact-cta-section">
-      <div class="open-door-glass-card reveal-on-scroll">
+      <div class="open-door-glass-card">
         <div class="open-door-glow"></div>
 
         <div class="script-tag">an open door</div>
@@ -606,7 +582,6 @@
           <a href="https://wa.me/916266273414" target="_blank" rel="noopener noreferrer" class="romantic-action-button" title="Send a message to Siddharth">
             <span class="btn-icon-leading">♡</span>
             <span class="btn-main-label">Message Siddharth <span class="heart-bold">❤️</span></span>
-            <span class="btn-hover-shimmer"></span>
           </a>
         </div>
 
@@ -637,6 +612,6 @@
 
   </main>
 
-  <script src="script.js?v=2026.1" defer></script>
+  <script src="script.js?v=2026.2" defer></script>
 </body>
 </html>

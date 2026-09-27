@@ -6,7 +6,20 @@
   <title>For Aarti ❤️ | A Sincere Letter & Memories</title>
   <meta name="description" content="A personal, heartfelt, and sincere message dedicated to Aarti. With honesty, understanding, and deep respect.">
   
-  <!-- Open Graph / Meta -->
+  <!-- Performance Diagnostic Timers -->
+  <script>
+    console.time("APP_TOTAL_LOAD");
+    console.time("APP_RENDER");
+    document.addEventListener("DOMContentLoaded", function() {
+      console.timeEnd("APP_RENDER");
+      console.log("[PERF] APP_RENDER completed at:", performance.now().toFixed(2) + "ms");
+    });
+    window.addEventListener("load", function() {
+      console.timeEnd("APP_TOTAL_LOAD");
+      console.log("[PERF] APP_TOTAL_LOAD completed at:", performance.now().toFixed(2) + "ms");
+    });
+  </script>
+  
   <meta property="og:title" content="For Aarti ❤️">
   <meta property="og:description" content="A sincere message from someone who truly understands and cares.">
   <meta property="og:type" content="website">

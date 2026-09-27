@@ -5,300 +5,263 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Aarti ❤️ | A Sincere Letter & Memories</title>
   <meta name="description" content="A personal, heartfelt, and sincere message dedicated to Aarti. With honesty, understanding, and deep respect.">
-  
-  <!-- Performance Diagnostic Timers -->
-  <script>
-    console.time("APP_TOTAL_LOAD");
-    console.time("APP_RENDER");
-    document.addEventListener("DOMContentLoaded", function() {
-      console.timeEnd("APP_RENDER");
-      console.log("[PERF] APP_RENDER completed at:", performance.now().toFixed(2) + "ms");
-    });
-    window.addEventListener("load", function() {
-      console.timeEnd("APP_TOTAL_LOAD");
-      console.log("[PERF] APP_TOTAL_LOAD completed at:", performance.now().toFixed(2) + "ms");
-    });
-  </script>
-  
+
+  <!-- Open Graph -->
   <meta property="og:title" content="For Aarti ❤️">
   <meta property="og:description" content="A sincere message from someone who truly understands and cares.">
   <meta property="og:type" content="website">
 
-  <!-- Resource Hints for High-Speed Domain Resolution -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Non-blocking Asynchronous Google Fonts with immediate fallback -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600&family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600&family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
-  </noscript>
-  
-  <!-- Favicon icon (Heart) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
-
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <!-- Ambient Audio Controls -->
-  <div class="audio-widget" id="audioWidget">
-    <button class="audio-btn" id="audioToggle" aria-label="Toggle ambient soundtrack" title="Play ambient soundscape">
-      <div class="sound-bars">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <span class="audio-label" id="audioLabel">Play Ambient Music</span>
+<body data-theme="midnight">
+
+  <!-- Ambient Interactive Canvas for Floating Petals & Stardust -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Glowing Cursor Follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Floating Ambient Audio Widget -->
+  <div class="floating-audio-widget">
+    <button class="audio-control-btn" id="audioToggle" aria-label="Ambient soundscape" title="Play Generative Ambient Music">
+      <span class="sound-wave">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="audio-status-text" id="audioStatusText">Atmosphere</span>
     </button>
   </div>
 
   <!-- Subtle Scroll Progress Bar -->
-  <div class="scroll-progress-container">
-    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-  </div>
+  <div class="scroll-progress-line" id="scrollProgress"></div>
 
-  <!-- Background Canvas for Soft Floating Rose & Gold Particles -->
-  <canvas id="ambientCanvas"></canvas>
-
-  <!-- Main Content Wrapper -->
-  <main class="page-content">
+  <main class="page-wrapper">
 
     <!-- 1. HERO SECTION -->
     <section id="hero" class="hero-section">
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-      
-      <div class="container hero-container">
-        <div class="hero-badge fade-in-up">
-          <span class="badge-icon">♡</span>
+      <div class="hero-aurora-glow glow-top-left"></div>
+      <div class="hero-aurora-glow glow-bottom-right"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge animate-fade-up">
+          <span class="badge-sparkle">✦</span>
           <span class="badge-text">From the heart</span>
+          <span class="badge-sparkle">✦</span>
         </div>
 
-        <h1 class="hero-title fade-in-up delay-1">
-          For Aarti <span class="heart-pulse">❤️</span>
+        <h1 class="hero-title animate-fade-up delay-1">
+          For Aarti <span class="pulsing-heart-hero">❤️</span>
         </h1>
 
-        <p class="hero-subtitle fade-in-up delay-2">
+        <p class="hero-subtitle animate-fade-up delay-2">
           There are some things I should have said a long time ago.
         </p>
 
-        <p class="hero-intro-note fade-in-up delay-3">
+        <p class="hero-intro-note animate-fade-up delay-3">
           I took time to step back, reflect deeply on where I fell short, and write this with complete honesty, humility, and zero expectations.
         </p>
 
-        <div class="hero-cta-wrapper fade-in-up delay-4">
-          <a href="#apology" class="btn-scroll">
+        <div class="hero-actions animate-fade-up delay-4">
+          <a href="#apology" class="btn-primary-hero">
             <span>Start Reading</span>
-            <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
+            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
           </a>
         </div>
       </div>
 
-      <div class="hero-bottom-fade"></div>
+      <div class="hero-scroll-indicator">
+        <span class="mouse-wheel"></span>
+        <span class="scroll-text">Scroll gently</span>
+      </div>
     </section>
 
     <!-- 2. APOLOGY SECTION (CONFESSION & ACCOUNTABILITY) -->
-    <section id="apology" class="section apology-section">
-      <div class="section-bg-watermark">♡</div>
-      
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">from me to you</span>
-          <h2 class="section-title">I'm <span class="rose-highlight">Sorry</span>, Aarti.</h2>
-          <div class="title-divider"></div>
-        </div>
+    <section id="apology" class="section-container">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">from me to you</div>
+        <h2 class="section-title">I'm <span class="gradient-rose-text">Sorry</span>, Aarti.</h2>
+        <div class="luxury-divider"></div>
+      </div>
 
-        <div class="confession-letter-card reveal delay-1">
-          <div class="confession-glow"></div>
-          
-          <div class="confession-inner">
-            <p class="confession-lead">
-              Aarti, I'm <span class="rose-highlight">sorry</span>.
+      <div class="confession-envelope-card reveal-on-scroll delay-1">
+        <div class="envelope-accent-line"></div>
+        <div class="confession-card-body">
+          <p class="confession-lead-sentence">
+            Aarti, I'm <span class="gradient-rose-text font-italic">sorry</span>.
+          </p>
+
+          <div class="confession-points-grid">
+            <div class="confession-point-item">
+              <div class="point-heart-bullet">♡</div>
+              <p class="point-text">I'm sorry for the times I behaved immaturely.</p>
+            </div>
+            <div class="confession-point-item">
+              <div class="point-heart-bullet">♡</div>
+              <p class="point-text">I'm sorry for the things I said or did without thinking about how they would make you feel.</p>
+            </div>
+            <div class="confession-point-item">
+              <div class="point-heart-bullet">♡</div>
+              <p class="point-text">I'm sorry for making you feel that you couldn't rely on me the way you deserved to.</p>
+            </div>
+          </div>
+
+          <div class="confession-realization-quote">
+            <div class="quote-mark-left">“</div>
+            <p>
+              I understand now that being in a relationship isn't just about loving someone. It's about understanding them, respecting them, listening to them, communicating properly, controlling your reactions, and making the other person feel safe and valued.
             </p>
-            
-            <div class="confession-thoughts">
-              <div class="thought-line">
-                <span class="thought-bullet">♡</span>
-                <p>I'm sorry for the times I behaved immaturely.</p>
-              </div>
-              <div class="thought-line">
-                <span class="thought-bullet">♡</span>
-                <p>I'm sorry for the things I said or did without thinking about how they would make you feel.</p>
-              </div>
-              <div class="thought-line">
-                <span class="thought-bullet">♡</span>
-                <p>I'm sorry for making you feel that you couldn't rely on me the way you deserved to.</p>
-              </div>
-            </div>
-
-            <div class="confession-realization">
-              <p>
-                I understand now that being in a relationship isn't just about loving someone. It's about understanding them, respecting them, listening to them, communicating properly, controlling your reactions, and making the other person feel safe and valued.
-              </p>
-            </div>
-
-            <div class="confession-footer">
-              <span class="handwritten-whisper">"I should have understood that earlier."</span>
+            <div class="quote-whisper">
+              <span class="handwritten-accent">"I should have understood that earlier."</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="humility-card reveal delay-2">
-          <span class="humility-heart">♡</span>
-          <p>
-            I don't want to make excuses for my behavior. Acknowledging my shortcomings without deflection is the very least you deserved from me.
-          </p>
-        </div>
+      <div class="humility-badge-card reveal-on-scroll delay-2">
+        <div class="humility-icon">♡</div>
+        <p class="humility-text">
+          I don't want to make excuses for my behavior. Acknowledging my shortcomings without deflection is the very least you deserved from me.
+        </p>
       </div>
     </section>
 
     <!-- 3. DO YOU REMEMBER SECTION (BIKE JOURNEY MEMORY) -->
-    <section id="memory" class="section memory-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">treasured memories</span>
-          <h2 class="section-title">Do You Remember?</h2>
-          <div class="title-divider"></div>
-        </div>
+    <section id="memory" class="section-container">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">treasured memories</div>
+        <h2 class="section-title">Do You Remember?</h2>
+        <div class="luxury-divider"></div>
+      </div>
 
-        <!-- Main Cinematic Ride Memory -->
-        <div class="cinematic-memory-card reveal">
-          <div class="memory-photo-frame">
-            <picture>
-              <source srcset="assets/bike-memory.webp" type="image/webp">
-              <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="memory-image" loading="lazy" decoding="async" width="800" height="450">
-            </picture>
-            <div class="photo-gradient-vignette"></div>
-            <div class="photo-caption-tag">
-              <span>Our rides together ♡</span>
-            </div>
-          </div>
-
-          <div class="memory-story-box">
-            <div class="diary-date">a memory I hold close</div>
-            <blockquote class="memory-letter-quote">
-              <p class="story-p">
-                Do you remember those rides when we were together?
-              </p>
-              <p class="story-p">
-                You sitting with me on the bike, us talking about random things, laughing, and sometimes just being quiet.
-              </p>
-              <p class="story-p highlight-story">
-                I still remember holding your hand while riding, looking at you for a moment, and feeling like I didn't need anything else at that moment.
-              </p>
-              <p class="story-p">
-                Those little moments may have seemed ordinary, but they became some of my favorite memories.
-              </p>
-            </blockquote>
-
-            <div class="story-sub-note">
-              <span class="handwritten-soft">I don't know if you remember those moments the same way I do, but I still do.</span>
-            </div>
+      <!-- Main Cinematic Ride Memory -->
+      <div class="cinematic-memory-showcase reveal-on-scroll">
+        <div class="memory-image-container" id="tiltMemoryCard">
+          <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="cinematic-photo" loading="lazy">
+          <div class="image-glass-overlay"></div>
+          <div class="image-badge-pill">
+            <span class="badge-dot"></span>
+            <span>Our rides together ♡</span>
           </div>
         </div>
 
-        <!-- 3 Specific Romantic Memory Cards -->
-        <div class="romantic-memory-cards reveal delay-1">
-          <!-- Card 1 -->
-          <div class="memory-note-card tilt-left">
-            <div class="note-pin"></div>
-            <span class="note-script-label">I still remember...</span>
-            <h3 class="note-heading">The way we talked about everything.</h3>
-            <p class="note-text">
-              "From the stupidest jokes to the conversations that somehow lasted for hours... I loved how easily I could talk to you."
+        <div class="memory-narrative-card">
+          <div class="narrative-ribbon">a memory I hold close</div>
+          <blockquote class="narrative-quotes-block">
+            <p class="narrative-para">
+              Do you remember those rides when we were together?
             </p>
-            <div class="note-footer-doodle">
-              <span class="doodle-heart">♡</span>
-            </div>
-          </div>
+            <p class="narrative-para">
+              You sitting with me on the bike, us talking about random things, laughing, and sometimes just being quiet.
+            </p>
+            <p class="narrative-para highlight-mem">
+              I still remember holding your hand while riding, looking at you for a moment, and feeling like I didn't need anything else at that moment.
+            </p>
+            <p class="narrative-para">
+              Those little moments may have seemed ordinary, but they became some of my favorite memories.
+            </p>
+          </blockquote>
 
-          <!-- Card 2 -->
-          <div class="memory-note-card tilt-straight">
-            <div class="note-pin"></div>
-            <span class="note-script-label">Some moments didn't need words.</span>
-            <h3 class="note-heading">Just being beside you.</h3>
-            <p class="note-text">
-              "Sometimes we didn't even have to say anything. Being next to you already felt like enough."
-            </p>
-            <div class="note-footer-doodle">
-              <span class="doodle-heart">♡</span>
-            </div>
+          <div class="narrative-footnote">
+            <span class="handwritten-accent">I don't know if you remember those moments the same way I do, but I still do.</span>
           </div>
+        </div>
+      </div>
 
-          <!-- Card 3 -->
-          <div class="memory-note-card tilt-right">
-            <div class="note-pin"></div>
-            <span class="note-script-label">One of my favorite memories.</span>
-            <h3 class="note-heading">Holding your hand.</h3>
-            <p class="note-text">
-              "I still remember those little moments when I held your hand while we were riding. It was such a small thing, but somehow it meant so much to me."
-            </p>
-            <div class="note-footer-doodle">
-              <span class="doodle-heart">♡</span>
-            </div>
-          </div>
+      <!-- 3 Specific Memory Cards -->
+      <div class="trio-memories-grid reveal-on-scroll delay-1">
+        <!-- Memory 1 -->
+        <div class="trio-card card-tilt-1">
+          <div class="card-shimmer"></div>
+          <div class="card-pin-top"></div>
+          <span class="card-sub-script">I still remember...</span>
+          <h3 class="card-main-title">The way we talked about everything.</h3>
+          <p class="card-body-text">
+            "From the stupidest jokes to the conversations that somehow lasted for hours... I loved how easily I could talk to you."
+          </p>
+          <div class="card-footer-heart">♡</div>
+        </div>
+
+        <!-- Memory 2 -->
+        <div class="trio-card card-tilt-2">
+          <div class="card-shimmer"></div>
+          <div class="card-pin-top"></div>
+          <span class="card-sub-script">Some moments didn't need words.</span>
+          <h3 class="card-main-title">Just being beside you.</h3>
+          <p class="card-body-text">
+            "Sometimes we didn't even have to say anything. Being next to you already felt like enough."
+          </p>
+          <div class="card-footer-heart">♡</div>
+        </div>
+
+        <!-- Memory 3 -->
+        <div class="trio-card card-tilt-3">
+          <div class="card-shimmer"></div>
+          <div class="card-pin-top"></div>
+          <span class="card-sub-script">One of my favorite memories.</span>
+          <h3 class="card-main-title">Holding your hand.</h3>
+          <p class="card-body-text">
+            "I still remember those little moments when I held your hand while we were riding. It was such a small thing, but somehow it meant so much to me."
+          </p>
+          <div class="card-footer-heart">♡</div>
         </div>
       </div>
     </section>
 
-    <!-- 4. ROMANTIC MEMORY TRAIL ("Little Things I Still Remember") -->
-    <section class="section memory-trail-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">echoes of us</span>
-          <h2 class="section-title">Little Things I Still Remember</h2>
-          <div class="title-divider"></div>
+    <!-- 4. LITTLE THINGS I STILL REMEMBER -->
+    <section class="section-container">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">echoes of us</div>
+        <h2 class="section-title">Little Things I Still Remember</h2>
+        <div class="luxury-divider"></div>
+      </div>
+
+      <div class="echoes-interactive-board reveal-on-scroll">
+        <div class="echo-note-tile echo-pos-1">
+          <div class="tape-corner"></div>
+          <h4 class="echo-title">Your hand in mine.</h4>
+          <p class="echo-desc">The quiet comfort when my fingers held yours.</p>
         </div>
 
-        <div class="memory-trail-scatter reveal">
-          <div class="scatter-note note-1">
-            <div class="tape-strip"></div>
-            <p class="scatter-title">Your hand in mine.</p>
-            <span class="scatter-caption">The quiet comfort when my fingers held yours.</span>
-          </div>
+        <div class="echo-note-tile echo-pos-2">
+          <div class="tape-corner"></div>
+          <h4 class="echo-title">Our random conversations.</h4>
+          <p class="echo-desc">Laughing at jokes only we understood.</p>
+        </div>
 
-          <div class="scatter-note note-2">
-            <div class="tape-strip"></div>
-            <p class="scatter-title">Our random conversations.</p>
-            <span class="scatter-caption">Laughing at jokes only we understood.</span>
-          </div>
+        <div class="echo-note-tile echo-pos-3">
+          <div class="tape-corner"></div>
+          <h4 class="echo-title">The rides that felt too short.</h4>
+          <p class="echo-desc">Wishing the road and the night would keep going.</p>
+        </div>
 
-          <div class="scatter-note note-3">
-            <div class="tape-strip"></div>
-            <p class="scatter-title">The rides that felt too short.</p>
-            <span class="scatter-caption">Wishing the road and the night would keep going.</span>
-          </div>
+        <div class="echo-note-tile echo-pos-4">
+          <div class="tape-corner"></div>
+          <h4 class="echo-title">When we didn't need to say anything.</h4>
+          <p class="echo-desc">The gentle calm of shared silence.</p>
+        </div>
 
-          <div class="scatter-note note-4">
-            <div class="tape-strip"></div>
-            <p class="scatter-title">When we didn't need to say anything.</p>
-            <span class="scatter-caption">The gentle calm of shared silence.</span>
-          </div>
+        <div class="echo-note-tile echo-pos-5">
+          <div class="tape-corner"></div>
+          <h4 class="echo-title">How fast time moved.</h4>
+          <p class="echo-desc">Hours feeling like minutes whenever I was with you.</p>
+        </div>
 
-          <div class="scatter-note note-5">
-            <div class="tape-strip"></div>
-            <p class="scatter-title">How fast time moved.</p>
-            <span class="scatter-caption">Hours feeling like minutes whenever I was with you.</span>
-          </div>
-
-          <!-- Polaroid Memory Card -->
-          <div class="polaroid-card">
-            <div class="polaroid-photo-wrapper">
-              <picture>
-                <source srcset="assets/relive-day.webp" type="image/webp">
-                <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-photo" loading="lazy" decoding="async" width="400" height="225">
-              </picture>
+        <!-- Polaroid Frame -->
+        <div class="polaroid-feature-frame" id="tiltPolaroid">
+          <div class="polaroid-inner-white">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-real-img" loading="lazy">
             </div>
-            <div class="polaroid-caption">
-              <h4>A moment I wish I could pause.</h4>
-              <p>Just you, me, the road, and nowhere we needed to be.</p>
+            <div class="polaroid-handwritten-caption">
+              <h4 class="polaroid-title">A moment I wish I could pause.</h4>
+              <p class="polaroid-sub">Just you, me, the road, and nowhere we needed to be.</p>
             </div>
           </div>
         </div>
@@ -306,211 +269,243 @@
     </section>
 
     <!-- 5. CINEMATIC FEATURE: "IF I COULD RELIVE ONE DAY" -->
-    <section class="section relive-day-section">
-      <div class="container">
-        <div class="relive-cinematic-backdrop reveal">
-          <picture>
-            <source srcset="assets/relive-day.webp" type="image/webp">
-            <img src="assets/relive-day.jpg" alt="Scenic coastal road at dusk" class="relive-bg-img" loading="lazy" decoding="async" width="1200" height="675">
-          </picture>
-          <div class="relive-overlay"></div>
-          
-          <div class="relive-content">
-            <span class="handwritten-tag light">if time could turn back</span>
-            <h2 class="relive-heading">If I could relive one day...</h2>
-            
-            <div class="relive-body">
-              <p>I don't think I'd choose some huge special occasion.</p>
-              <p class="relive-highlight">I'd choose an ordinary day.</p>
-              <p>
-                One of those days where we were just riding around, talking about random things, laughing, holding hands...
-              </p>
-              <p class="relive-conclusion">
-                Because looking back, those ordinary moments were never ordinary to me.
-              </p>
-            </div>
+    <section id="relive" class="section-container relive-wide-section">
+      <div class="relive-cinematic-stage reveal-on-scroll">
+        <div class="relive-background-art">
+          <img src="assets/relive-day.jpg" alt="Scenic road at dusk" class="relive-img" loading="lazy">
+          <div class="relive-backdrop-mask"></div>
+        </div>
+
+        <div class="relive-glass-card">
+          <div class="script-tag light-tag">if time could turn back</div>
+          <h2 class="relive-main-heading">If I could relive one day...</h2>
+
+          <div class="relive-prose-flow">
+            <p class="relive-para-intro">I don't think I'd choose some huge special occasion.</p>
+            <p class="relive-para-focus">I'd choose an ordinary day.</p>
+            <p class="relive-para-story">
+              One of those days where we were just riding around, talking about random things, laughing, holding hands...
+            </p>
+            <p class="relive-para-epiphany">
+              Because looking back, those ordinary moments were never ordinary to me.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 6. LETTER CARD: "IF I COULD GO BACK..." -->
-    <section class="section relive-letter-section">
-      <div class="container">
-        <div class="letter-fragment-card reveal">
-          <div class="letter-fragment-border"></div>
-          <span class="handwritten-script-header">A realization</span>
-          <h3 class="fragment-heading">"If I could go back..."</h3>
-          
-          <div class="fragment-body">
-            <p>I wouldn't change every moment.</p>
-            <p>I'd simply go back knowing what I know now.</p>
-            
-            <div class="fragment-verses">
-              <div class="verse-line"><span>♡</span> I'd listen more.</div>
-              <div class="verse-line"><span>♡</span> I'd understand more.</div>
-              <div class="verse-line"><span>♡</span> I'd react less.</div>
-              <div class="verse-line"><span>♡</span> I'd appreciate you more.</div>
+    <section class="section-container">
+      <div class="fragment-letter-box reveal-on-scroll">
+        <div class="fragment-inner-glow"></div>
+        <div class="fragment-header">
+          <span class="script-tag">A realization</span>
+          <h3 class="fragment-title">"If I could go back..."</h3>
+        </div>
+
+        <div class="fragment-body">
+          <p class="fragment-lead-text">I wouldn't change every moment.</p>
+          <p class="fragment-sub-text">I'd simply go back knowing what I know now.</p>
+
+          <div class="fragment-vows-list">
+            <div class="vow-line-item">
+              <span class="vow-heart">♡</span>
+              <span class="vow-words">I'd listen more.</span>
+            </div>
+            <div class="vow-line-item">
+              <span class="vow-heart">♡</span>
+              <span class="vow-words">I'd understand more.</span>
+            </div>
+            <div class="vow-line-item">
+              <span class="vow-heart">♡</span>
+              <span class="vow-words">I'd react less.</span>
+            </div>
+            <div class="vow-line-item">
+              <span class="vow-heart">♡</span>
+              <span class="vow-words">I'd appreciate you more.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. GROWTH & INTENTIONS SECTION (PERSONAL PROMISES) -->
-    <section id="growth" class="section growth-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">learning & growing</span>
-          <h2 class="section-title">I Don't Want To Just Promise. I Want To Prove It.</h2>
-          <div class="title-divider"></div>
+    <!-- 7. GROWTH & INTENTIONS SECTION -->
+    <section id="growth" class="section-container">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">learning & growing</div>
+        <h2 class="section-title">I Don't Want To Just Promise. I Want To Prove It.</h2>
+        <div class="luxury-divider"></div>
+      </div>
+
+      <div class="growth-statement-banner reveal-on-scroll">
+        <p class="statement-first">
+          I know saying <em>"I won't be immature anymore"</em> is easy. Anyone can say it.
+        </p>
+        <div class="statement-core">
+          <strong>What matters is what I do.</strong>
+        </div>
+      </div>
+
+      <!-- 6 Intentions Grid -->
+      <div class="growth-pillars-grid reveal-on-scroll delay-1">
+        <!-- 1. Listening -->
+        <div class="pillar-glass-card">
+          <div class="pillar-header-row">
+            <span class="pillar-tag">Listening</span>
+            <span class="pillar-num">01</span>
+          </div>
+          <h3 class="pillar-heading">I should have listened more.</h3>
+          <p class="pillar-content">Sometimes you didn't need an argument or an explanation. You just needed me to listen and care about what you were feeling.</p>
         </div>
 
-        <div class="growth-intro-whisper reveal">
-          <p>
-            I know saying <em>"I won't be immature anymore"</em> is easy. Anyone can say it.
-          </p>
-          <div class="growth-pith">
-            <strong>What matters is what I do.</strong>
+        <!-- 2. Emotional Growth -->
+        <div class="pillar-glass-card">
+          <div class="pillar-header-row">
+            <span class="pillar-tag">Emotional Growth</span>
+            <span class="pillar-num">02</span>
           </div>
+          <h3 class="pillar-heading">I'm learning to become better.</h3>
+          <p class="pillar-content">I know saying I'll change doesn't mean much on its own. I want my actions and consistency to be the proof.</p>
         </div>
 
-        <!-- Personal Story Cards -->
-        <div class="personal-intentions-flow reveal delay-1">
-          
-          <div class="intention-note-card">
-            <span class="intention-tag-small">Listening</span>
-            <h3>I should have listened more.</h3>
-            <p>Sometimes you didn't need an argument or an explanation. You just needed me to listen and care about what you were feeling.</p>
+        <!-- 3. Patience -->
+        <div class="pillar-glass-card">
+          <div class="pillar-header-row">
+            <span class="pillar-tag">Patience</span>
+            <span class="pillar-num">03</span>
           </div>
+          <h3 class="pillar-heading">Thinking before I react.</h3>
+          <p class="pillar-content">Pausing to understand how words land, letting go of pride, and choosing patience over sudden defensiveness.</p>
+        </div>
 
-          <div class="intention-note-card">
-            <span class="intention-tag-small">Emotional Growth</span>
-            <h3>I'm learning to become better.</h3>
-            <p>I know saying I'll change doesn't mean much on its own. I want my actions and consistency to be the proof.</p>
+        <!-- 4. Respect & Freedom -->
+        <div class="pillar-glass-card">
+          <div class="pillar-header-row">
+            <span class="pillar-tag">Respect & Freedom</span>
+            <span class="pillar-num">04</span>
           </div>
+          <h3 class="pillar-heading">Giving you your space.</h3>
+          <p class="pillar-content">Respecting your boundaries, your independence, your life, and never making you feel crowded or overwhelmed.</p>
+        </div>
 
-          <div class="intention-note-card">
-            <span class="intention-tag-small">Patience</span>
-            <h3>Thinking before I react.</h3>
-            <p>Pausing to understand how words land, letting go of pride, and choosing patience over sudden defensiveness.</p>
+        <!-- 5. Emotional Security -->
+        <div class="pillar-glass-card">
+          <div class="pillar-header-row">
+            <span class="pillar-tag">Emotional Security</span>
+            <span class="pillar-num">05</span>
           </div>
+          <h3 class="pillar-heading">You deserve peace, not uncertainty.</h3>
+          <p class="pillar-content">I want the person beside me to feel respected, heard, and safe enough to be completely themselves without fear of judgment.</p>
+        </div>
 
-          <div class="intention-note-card">
-            <span class="intention-tag-small">Respect & Freedom</span>
-            <h3>Giving you your space.</h3>
-            <p>Respecting your boundaries, your independence, your life, and never making you feel crowded or overwhelmed.</p>
+        <!-- 6. Unwavering Trust -->
+        <div class="pillar-glass-card highlight-gold-pillar">
+          <div class="pillar-header-row">
+            <span class="pillar-tag gold-tag">Unwavering Trust</span>
+            <span class="pillar-num gold-num">06</span>
           </div>
-
-          <div class="intention-note-card">
-            <span class="intention-tag-small">Emotional Security</span>
-            <h3>You deserve peace, not uncertainty.</h3>
-            <p>I want the person beside me to feel respected, heard, and safe enough to be completely themselves without fear of judgment.</p>
-          </div>
-
-          <div class="intention-note-card intention-highlight-card">
-            <span class="intention-tag-small gold">Unwavering Trust</span>
-            <h3>I want you to feel safe with me.</h3>
-            <p>I don't want you to have to question my intentions, my feelings, or where you stand with me. You should always feel valued.</p>
-          </div>
-
+          <h3 class="pillar-heading">I want you to feel safe with me.</h3>
+          <p class="pillar-content">I don't want you to have to question my intentions, my feelings, or where you stand with me. You should always feel valued.</p>
         </div>
       </div>
     </section>
 
     <!-- 8. SECURITY SECTION ("YOU DESERVE PEACE, NOT UNCERTAINTY") -->
-    <section id="security" class="section security-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">safe harbor</span>
-          <h2 class="section-title">You deserve <span class="rose-highlight">peace</span>, not uncertainty.</h2>
-          <div class="title-divider"></div>
-        </div>
+    <section id="security" class="section-container">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">safe harbor</div>
+        <h2 class="section-title">You deserve <span class="gradient-rose-text">peace</span>, not uncertainty.</h2>
+        <div class="luxury-divider"></div>
+      </div>
 
-        <div class="sanctuary-letter-card reveal">
-          <div class="sanctuary-inner">
-            <p class="sanctuary-lead">
-              I don't want you to feel like you have to change yourself for me.
-            </p>
-            <p class="sanctuary-sub-lead">
-              I want you to feel safe being yourself.
-            </p>
+      <div class="sanctuary-cathedral-card reveal-on-scroll">
+        <div class="sanctuary-aurora"></div>
+        <div class="sanctuary-content">
+          <p class="sanctuary-opening-lead">
+            I don't want you to feel like you have to change yourself for me.
+          </p>
+          <p class="sanctuary-opening-sub">
+            I want you to feel safe being yourself.
+          </p>
 
-            <div class="sanctuary-vows-flow">
-              <div class="sanctuary-vow">
-                <span class="vow-flourish">♡</span>
-                <p>I want you to know that you can talk to me without being judged.</p>
-              </div>
-
-              <div class="sanctuary-vow">
-                <span class="vow-flourish">♡</span>
-                <p>You can tell me when something hurts you, and I will listen with understanding.</p>
-              </div>
-
-              <div class="sanctuary-vow">
-                <span class="vow-flourish">♡</span>
-                <p>You can have your own space and your own life — because healthy love supports freedom.</p>
-              </div>
-
-              <div class="sanctuary-vow">
-                <span class="vow-flourish">♡</span>
-                <p>You should never have to wonder whether I respect you or care about your feelings.</p>
-              </div>
+          <div class="sanctuary-grid-promises">
+            <div class="promise-item-tile">
+              <span class="promise-heart">♡</span>
+              <p>I want you to know that you can talk to me without being judged.</p>
             </div>
 
-            <div class="sanctuary-closing-promise">
-              <p>
-                "I want to be someone you can trust — not because I keep promising it, but because my actions consistently make you feel it."
-              </p>
+            <div class="promise-item-tile">
+              <span class="promise-heart">♡</span>
+              <p>You can tell me when something hurts you, and I will listen with understanding.</p>
             </div>
+
+            <div class="promise-item-tile">
+              <span class="promise-heart">♡</span>
+              <p>You can have your own space and your own life — because healthy love supports freedom.</p>
+            </div>
+
+            <div class="promise-item-tile">
+              <span class="promise-heart">♡</span>
+              <p>You should never have to wonder whether I respect you or care about your feelings.</p>
+            </div>
+          </div>
+
+          <div class="sanctuary-solemn-pledge">
+            <p>
+              "I want to be someone you can trust — not because I keep promising it, but because my actions consistently make you feel it."
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 9. HANDWRITTEN APOLOGY LETTER (FROM SIDDHARTH) -->
-    <section id="letter" class="section letter-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag">unspoken words</span>
-          <h2 class="section-title">A letter I should have written sooner.</h2>
-          <div class="title-divider"></div>
-        </div>
+    <!-- 9. HANDWRITTEN APOLOGY LETTER (INTERACTIVE WAX SEAL PARCHMENT) -->
+    <section id="letter" class="section-container letter-section-wrapper">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag">unspoken words</div>
+        <h2 class="section-title">A letter I should have written sooner.</h2>
+        <div class="luxury-divider"></div>
+      </div>
 
-        <div class="parchment-envelope-wrapper reveal">
-          <div class="parchment-letter-sheet">
-            <div class="letter-wax-seal">
-              <span>A</span>
+      <div class="wax-sealed-letter-experience reveal-on-scroll">
+        <!-- Interactive Letter Envelope Card -->
+        <div class="vintage-parchment-sheet">
+          <div class="parchment-texture-overlay"></div>
+          
+          <div class="letter-wax-seal-badge" id="waxSealBtn" title="Unseal & Read">
+            <div class="wax-seal-ring">
+              <span class="wax-letter">A</span>
             </div>
+            <span class="wax-label">Click to unseal</span>
+          </div>
 
-            <div class="letter-sheet-content">
-              <p class="letter-salutation">Aarti,</p>
+          <div class="letter-written-text">
+            <p class="letter-salutation-line">Aarti,</p>
 
-              <p class="letter-p">I'm sorry.</p>
-              
-              <p class="letter-p">Not because I want something from you.</p>
-              
-              <p class="letter-p">Not because I expect you to forget what happened.</p>
+            <p class="letter-text-paragraph">I'm sorry.</p>
+            
+            <p class="letter-text-paragraph">Not because I want something from you.</p>
+            
+            <p class="letter-text-paragraph">Not because I expect you to forget what happened.</p>
 
-              <p class="letter-p letter-highlight-p">
-                I'm sorry because I understand now that some of my actions hurt someone who meant a lot to me.
-              </p>
+            <p class="letter-text-paragraph letter-core-highlight">
+              I'm sorry because I understand now that some of my actions hurt someone who meant a lot to me.
+            </p>
 
-              <p class="letter-p">
-                I was immature in ways I didn't understand at the time. I'm trying to understand them now.
-              </p>
+            <p class="letter-text-paragraph">
+              I was immature in ways I didn't understand at the time. I'm trying to understand them now.
+            </p>
 
-              <p class="letter-p">
-                And if I ever get another chance to be in your life, I don't want to convince you with words.
-              </p>
+            <p class="letter-text-paragraph">
+              And if I ever get another chance to be in your life, I don't want to convince you with words.
+            </p>
 
-              <p class="letter-p letter-action-p">
-                I want to let my actions speak.
-              </p>
+            <p class="letter-text-paragraph letter-action-emphasis">
+              I want to let my actions speak.
+            </p>
 
-              <div class="letter-signature-area">
-                <span class="signature-siddharth">— Siddharth <span class="signature-heart">♡</span></span>
-              </div>
+            <div class="letter-author-signature">
+              <span class="sign-name">— Siddharth <span class="sign-heart">♡</span></span>
             </div>
           </div>
         </div>
@@ -518,80 +513,101 @@
     </section>
 
     <!-- 10. ENDING / EPILOGUE SECTION ("ONE LAST THING...") -->
-    <section id="ending" class="section ending-section">
-      <div class="ending-vignette"></div>
-      
-      <div class="container ending-container">
-        <div class="section-header reveal">
-          <span class="handwritten-tag light">final words</span>
-          <h2 class="section-title cinematic-title">One Last Thing...</h2>
-          <div class="title-divider gold-divider"></div>
+    <section id="ending" class="section-container ending-epilogue-section">
+      <div class="section-header reveal-on-scroll">
+        <div class="script-tag light-tag">final words</div>
+        <h2 class="section-title cinematic-epilogue-title">One Last Thing...</h2>
+        <div class="luxury-divider gold-divider"></div>
+      </div>
+
+      <div class="epilogue-night-card reveal-on-scroll">
+        <div class="epilogue-ambient-glow"></div>
+        <div class="epilogue-lines-wrapper">
+          <div class="epilogue-line-group">
+            <p class="line-truth">I can't change the past.</p>
+            <p class="line-resolve">But I can change who I become from here.</p>
+          </div>
+
+          <div class="epilogue-soft-separator">✦</div>
+
+          <div class="epilogue-line-group">
+            <p class="line-truth">I can't ask you to forget everything that happened.</p>
+            <p class="line-resolve">But I can show you that I learned from it.</p>
+          </div>
+
+          <div class="epilogue-soft-separator">✦</div>
+
+          <div class="epilogue-line-group">
+            <p class="line-truth">And I can't ask you to trust me immediately.</p>
+            <p class="line-resolve">If you ever choose to give me another chance, I'll understand that trust has to be earned slowly.</p>
+          </div>
+
+          <div class="epilogue-peace-box">
+            <div class="peace-row">
+              <span class="peace-dot"></span>
+              <span>No pressure.</span>
+            </div>
+            <div class="peace-row">
+              <span class="peace-dot"></span>
+              <span>No expectations.</span>
+            </div>
+            <p class="peace-concluding-text">Just a sincere apology from someone who still cares about you.</p>
+          </div>
         </div>
 
-        <div class="ending-quiet-card reveal">
-          <div class="ending-lines-block">
-            <p class="ending-line">I can't change the past.</p>
-            <p class="ending-line highlight">But I can change who I become from here.</p>
-            
-            <div class="ending-subtle-divider"></div>
-
-            <p class="ending-line">I can't ask you to forget everything that happened.</p>
-            <p class="ending-line highlight">But I can show you that I learned from it.</p>
-
-            <div class="ending-subtle-divider"></div>
-
-            <p class="ending-line">And I can't ask you to trust me immediately.</p>
-            <p class="ending-line highlight">If you ever choose to give me another chance, I'll understand that trust has to be earned slowly.</p>
-
-            <div class="ending-gentle-box">
-              <p class="ending-gentle-p">No pressure.</p>
-              <p class="ending-gentle-p">No expectations.</p>
-              <p class="ending-care-p">Just a sincere apology from someone who still cares about you.</p>
-            </div>
-          </div>
-
-          <div class="final-signature-block">
-            <h3 class="final-apology-text">I'm sorry, Aarti. <span class="final-pulsing-heart">❤️</span></h3>
-            <p class="final-respect-text">Whatever you decide, I'll respect it.</p>
-          </div>
+        <div class="epilogue-final-apology">
+          <h3 class="final-apology-heading">I'm sorry, Aarti. <span class="pulsing-heart-hero">❤️</span></h3>
+          <p class="final-respect-note">Whatever you decide, I'll respect it.</p>
         </div>
       </div>
     </section>
 
     <!-- 11. FINAL CTA SECTION (MESSAGE ME) -->
-    <section id="contact" class="section cta-section">
-      <div class="container cta-container">
-        <div class="cta-card glass-card reveal">
-          <div class="cta-glow"></div>
+    <section id="contact" class="section-container contact-cta-section">
+      <div class="open-door-glass-card reveal-on-scroll">
+        <div class="open-door-glow"></div>
 
-          <span class="handwritten-tag">an open door</span>
-          <h2 class="cta-heading">"Maybe there's still something left to say."</h2>
-          
-          <div class="cta-body">
-            <p class="cta-text">If you ever feel like talking, you know where to find me.</p>
-            <div class="cta-reassurance">
-              <p>No pressure. No expectations.</p>
-              <p>Just a conversation, whenever you're ready.</p>
-            </div>
+        <div class="script-tag">an open door</div>
+        <h2 class="cta-heading-quote">"Maybe there's still something left to say."</h2>
+        
+        <div class="cta-inner-prose">
+          <p class="cta-lead-talk">If you ever feel like talking, you know where to find me.</p>
+          <div class="cta-comfort-box">
+            <p>No pressure. No expectations.</p>
+            <p>Just a conversation, whenever you're ready.</p>
           </div>
+        </div>
 
-          <div class="cta-action-wrapper">
-            <a href="https://wa.me/916266273414" target="_blank" rel="noopener noreferrer" class="btn-romantic-cta" title="Send a message to Siddharth">
-              <span class="btn-heart-lead">♡</span>
-              <span>Message Siddharth <span class="btn-heart">❤️</span></span>
-            </a>
+        <div class="cta-button-container">
+          <a href="https://wa.me/916266273414" target="_blank" rel="noopener noreferrer" class="romantic-action-button" title="Send a message to Siddharth">
+            <span class="btn-icon-leading">♡</span>
+            <span class="btn-main-label">Message Siddharth <span class="heart-bold">❤️</span></span>
+            <span class="btn-hover-shimmer"></span>
+          </a>
+        </div>
+
+        <p class="cta-whisper-foot">"Whenever you're ready."</p>
+
+        <!-- Interactive Reaction / Silent Whisper widget -->
+        <div class="silent-reaction-box" id="reactionBox">
+          <p class="reaction-title">Leave a quiet reaction (private to you)</p>
+          <div class="reaction-options">
+            <button class="reaction-chip" data-react="heard">🕊️ Heard this</button>
+            <button class="reaction-chip" data-react="peace">🤍 Reading in peace</button>
+            <button class="reaction-chip" data-react="time">⏳ Need time</button>
+            <button class="reaction-chip" data-react="smiled">🌸 Smiled</button>
           </div>
-
-          <p class="cta-sub-whisper">"Whenever you're ready."</p>
+          <div class="reaction-feedback" id="reactionFeedback"></div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <p class="footer-note">Made with reflection, honesty, and care.</p>
-        <p class="footer-sub">Dedicated to Aarti ♡</p>
+    <footer class="luminous-site-footer">
+      <div class="footer-container">
+        <div class="footer-floating-heart">🌸</div>
+        <p class="footer-primary-text">Made with reflection, honesty, and care.</p>
+        <p class="footer-dedication">Dedicated to Aarti ♡</p>
       </div>
     </footer>
 

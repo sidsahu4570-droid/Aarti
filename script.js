@@ -1,298 +1,333 @@
 /**
- * AARTI - ZERO-LATENCY JAVASCRIPT
- * Ambient Audio Synthesizer, Optimized Canvas Particle Engine & Scroll Triggers
+ * FOR AARTI ❤️ | LUXURY INTERACTION SUITE
+ * Features:
+ * 1. Web Audio API Generative Ambient Soundscape (Dreamy chord pad & celestial chimes)
+ * 2. Floating Rose Petals & Stardust Particle Canvas
+ * 3. Intersection Observer Scroll Reveals
+ * 4. 3D Tilt Parallax on Memory Cards
+ * 5. Theme Switcher (Midnight, Twilight, Parchment)
+ * 6. Wax Seal Letter Interaction
+ * 7. Reaction Widget with Local Storage
  */
 
-// Dual-lifecycle execution guard: guarantees execution regardless of when the script loads
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
-} else {
-  initApp();
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-function initApp() {
-  initScrollProgress();
-  initIntersectionObserver();
-  initAmbientAudio();
+  // ==========================================
+  // 1. THEME SWITCHER
+  // ==========================================
+  const themes = ['midnight', 'twilight', 'parchment'];
+  const themeNames = {
+    midnight: 'Midnight ✨',
+    twilight: 'Twilight 🌌',
+    parchment: 'Parchment 📜'
+  };
 
-  // Initialize canvas when browser is idle or after a short delay
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(initAmbientCanvas, { timeout: 800 });
-  } else {
-    setTimeout(initAmbientCanvas, 100);
+  const currentTheme = localStorage.getItem('aarti_site_theme') || 'midnight';
+  document.body.setAttribute('data-theme', currentTheme);
+
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    const themeNameLabel = themeToggle.querySelector('.theme-name');
+    if (themeNameLabel) {
+      themeNameLabel.textContent = themeNames[currentTheme] || 'Midnight ✨';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const active = document.body.getAttribute('data-theme') || 'midnight';
+      const nextIdx = (themes.indexOf(active) + 1) % themes.length;
+      const nextTheme = themes[nextIdx];
+      document.body.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('aarti_site_theme', nextTheme);
+      if (themeNameLabel) {
+        themeNameLabel.textContent = themeNames[nextTheme];
+      }
+    });
   }
-}
 
-/* ==========================================================
-   1. SCROLL PROGRESS BAR (Passive Event Listener)
-   ========================================================== */
-function initScrollProgress() {
-  const progressBar = document.getElementById('scrollProgressBar');
-  if (!progressBar) return;
+  // ==========================================
+  // 2. SCROLL PROGRESS & REVEAL ANIMATIONS
+  // ==========================================
+  const scrollProgressBar = document.getElementById('scrollProgress');
 
-  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = `${scrollPercent}%`;
-        ticking = false;
-      });
-      ticking = true;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight > 0) {
+      const progress = (window.scrollY / totalHeight) * 100;
+      scrollProgressBar.style.width = `${progress}%`;
     }
   }, { passive: true });
-}
 
-/* ==========================================================
-   2. INTERSECTION OBSERVER FOR REVEAL ANIMATIONS
-   ========================================================== */
-function initIntersectionObserver() {
-  const revealElements = document.querySelectorAll('.reveal');
-  if (!revealElements.length) return;
-
-  // Fallback for browsers without IntersectionObserver
-  if (!('IntersectionObserver' in window)) {
-    revealElements.forEach(el => el.classList.add('active'));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries, obs) => {
+  const reveals = document.querySelectorAll('.reveal-on-scroll');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        obs.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.05,
-    rootMargin: '100px 0px 100px 0px'
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
   });
 
-  revealElements.forEach(el => {
-    // Check if element is already in viewport on initial load
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-      el.classList.add('active');
-    } else {
-      observer.observe(el);
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // ==========================================
+  // 3. CURSOR GLOW EFFECT
+  // ==========================================
+  const cursorGlow = document.getElementById('cursorGlow');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function renderCursorGlow() {
+    cursorX += (mouseX - cursorX) * 0.1;
+    cursorY += (mouseY - cursorY) * 0.1;
+    if (cursorGlow) {
+      cursorGlow.style.left = `${cursorX}px`;
+      cursorGlow.style.top = `${cursorY}px`;
     }
-  });
-}
+    requestAnimationFrame(renderCursorGlow);
+  }
+  renderCursorGlow();
 
-/* ==========================================================
-   3. HIGH PERFORMANCE AMBIENT CANVAS PARTICLES
-   ========================================================== */
-function initAmbientCanvas() {
+  // ==========================================
+  // 4. FLOATING PETALS & STARDUST CANVAS
+  // ==========================================
   const canvas = document.getElementById('ambientCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d', { alpha: true });
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
 
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
 
-  const particleCount = Math.min(Math.floor(window.innerWidth / 25), 40);
   const particles = [];
+  const particleCount = 45;
 
-  const colors = [
-    'rgba(255, 255, 255, ', // pure white light
-    'rgba(255, 244, 240, ', // warm pale cream
-    'rgba(217, 79, 120, ',  // romantic rose
-    'rgba(184, 137, 53, '   // subtle gold
-  ];
-
-  class Particle {
+  class AmbientParticle {
     constructor() {
-      this.reset();
+      this.reset(true);
     }
 
-    reset() {
+    reset(initial = false) {
       this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.size = Math.random() * 2.0 + 0.8;
-      this.speedY = -(Math.random() * 0.25 + 0.05);
-      this.speedX = (Math.random() - 0.5) * 0.16;
-      this.colorBase = colors[Math.floor(Math.random() * colors.length)];
-      this.alpha = Math.random() * 0.35 + 0.12;
-      this.alphaSpeed = Math.random() * 0.005 + 0.002;
-      this.alphaDirection = Math.random() > 0.5 ? 1 : -1;
+      this.y = initial ? Math.random() * height : -20;
+      this.size = Math.random() * 4 + 2;
+      this.speedY = Math.random() * 0.6 + 0.3;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.02;
+      this.opacity = Math.random() * 0.5 + 0.2;
+      this.isPetal = Math.random() > 0.4;
+      this.color = this.isPetal 
+        ? `rgba(244, 114, 182, ${this.opacity})` 
+        : `rgba(251, 191, 36, ${this.opacity * 0.8})`;
     }
 
     update() {
       this.y += this.speedY;
-      this.x += this.speedX;
+      this.x += this.speedX + Math.sin(this.y * 0.008) * 0.4;
+      this.rotation += this.rotSpeed;
 
-      this.alpha += this.alphaSpeed * this.alphaDirection;
-      if (this.alpha > 0.40) {
-        this.alpha = 0.40;
-        this.alphaDirection = -1;
-      } else if (this.alpha < 0.08) {
-        this.alpha = 0.08;
-        this.alphaDirection = 1;
-      }
-
-      if (this.y < -10 || this.x < -10 || this.x > width + 10) {
-        this.y = height + 10;
-        this.x = Math.random() * width;
+      if (this.y > height + 20 || this.x < -30 || this.x > width + 30) {
+        this.reset();
       }
     }
 
     draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.colorBase + this.alpha + ')';
-      ctx.fill();
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.fillStyle = this.color;
+
+      if (this.isPetal) {
+        // Draw delicate curved rose petal
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(this.size, -this.size, this.size * 2, 0);
+        ctx.quadraticCurveTo(this.size, this.size, 0, 0);
+        ctx.fill();
+      } else {
+        // Draw soft glowing stardust
+        ctx.beginPath();
+        ctx.arc(0, 0, this.size * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
     }
   }
 
   for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+    particles.push(new AmbientParticle());
   }
 
-  let animationId = null;
-  let isTabActive = true;
-
-  function animate() {
-    if (!isTabActive) return;
+  function animateParticles() {
     ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-    }
-    animationId = requestAnimationFrame(animate);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
   }
+  animateParticles();
 
-  animate();
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      isTabActive = false;
-      if (animationId) cancelAnimationFrame(animationId);
-    } else {
-      isTabActive = true;
-      animate();
-    }
-  });
-
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }, 200);
-  }, { passive: true });
-}
-
-/* ==========================================================
-   4. AMBIENT SOUNDSCAPE SYNTHESIZER (Web Audio API)
-   Generates a warm, nostalgic, calming lo-fi chord progression
-   ========================================================== */
-function initAmbientAudio() {
+  // ==========================================
+  // 5. GENERATIVE AMBIENT AUDIO SYNTHESIZER
+  // ==========================================
   const audioBtn = document.getElementById('audioToggle');
-  const audioLabel = document.getElementById('audioLabel');
-  if (!audioBtn) return;
-
+  const audioStatusText = document.getElementById('audioStatusText');
   let audioCtx = null;
   let isPlaying = false;
   let synthInterval = null;
-  let masterGain = null;
 
-  const chords = [
-    [174.61, 220.00, 261.63, 329.63], // Fmaj7
-    [196.00, 246.94, 293.66, 392.00], // G6
-    [164.81, 196.00, 246.94, 329.63], // Em7
-    [220.00, 261.63, 329.63, 392.00]  // Am7
+  // Romantic Pentatonic Chord Frequencies in Hz (D-Major / F#-Minor)
+  const baseChords = [
+    [146.83, 220.00, 293.66, 369.99, 440.00], // D, A, D4, F#4, A4
+    [164.81, 246.94, 329.63, 392.00, 493.88], // E, B, E4, G4, B4
+    [185.00, 277.18, 369.99, 440.00, 554.37], // F#, C#, F#4, A4, C#5
+    [196.00, 293.66, 392.00, 493.88, 587.33]  // G, D, G4, B4, D5
   ];
 
-  let currentChordIndex = 0;
-
-  function createAudioContext() {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContextClass();
-
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-    masterGain.gain.linearRampToValueAtTime(0.24, audioCtx.currentTime + 3);
-
-    const filter = audioCtx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(650, audioCtx.currentTime);
-    filter.Q.setValueAtTime(1.5, audioCtx.currentTime);
-
-    masterGain.connect(filter);
-    filter.connect(audioCtx.destination);
-  }
-
-  function playWarmNote(freq, time, duration, isHighAccent = false) {
-    if (!audioCtx) return;
-
-    const osc = audioCtx.createOscillator();
-    const noteGain = audioCtx.createGain();
-
-    osc.type = isHighAccent ? 'sine' : 'triangle';
-    osc.frequency.setValueAtTime(freq, time);
-    osc.frequency.linearRampToValueAtTime(freq * 1.002, time + duration);
-
-    noteGain.gain.setValueAtTime(0, time);
-    noteGain.gain.linearRampToValueAtTime(isHighAccent ? 0.05 : 0.10, time + 0.8);
-    noteGain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-    osc.connect(noteGain);
-    noteGain.connect(masterGain);
-
-    osc.start(time);
-    osc.stop(time + duration);
-  }
-
-  function playNextChord() {
-    if (!isPlaying || !audioCtx) return;
-
-    const now = audioCtx.currentTime;
-    const chord = chords[currentChordIndex];
+  function playAmbientPad(chord) {
+    if (!audioCtx || !isPlaying) return;
 
     chord.forEach((freq, idx) => {
-      playWarmNote(freq, now + idx * 0.25, 6.5, false);
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      // Warm sine tone
+      osc.type = idx === 0 ? 'triangle' : 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      // Slow ambient swell
+      const duration = 6.0;
+      const now = audioCtx.currentTime;
+      const maxVol = (0.04 / (idx + 1));
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(maxVol, now + 2.0);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + duration);
     });
-
-    const melodyFreq = chord[Math.floor(Math.random() * chord.length)] * 2;
-    playWarmNote(melodyFreq, now + 1.2, 5.0, true);
-
-    currentChordIndex = (currentChordIndex + 1) % chords.length;
   }
 
-  function startMusic() {
+  function startAmbientAtmosphere() {
     if (!audioCtx) {
-      createAudioContext();
-    } else if (audioCtx.state === 'suspended') {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
       audioCtx.resume();
     }
 
-    isPlaying = true;
-    audioBtn.classList.add('playing');
-    audioLabel.textContent = 'Pause Ambient Music';
+    let chordIdx = 0;
+    playAmbientPad(baseChords[chordIdx]);
 
-    playNextChord();
-    synthInterval = setInterval(playNextChord, 4500);
+    synthInterval = setInterval(() => {
+      chordIdx = (chordIdx + 1) % baseChords.length;
+      playAmbientPad(baseChords[chordIdx]);
+    }, 4500);
   }
 
-  function stopMusic() {
-    isPlaying = false;
-    audioBtn.classList.remove('playing');
-    audioLabel.textContent = 'Play Ambient Music';
-
-    if (synthInterval) {
-      clearInterval(synthInterval);
-      synthInterval = null;
-    }
+  function stopAmbientAtmosphere() {
+    if (synthInterval) clearInterval(synthInterval);
+    synthInterval = null;
   }
 
   audioBtn.addEventListener('click', () => {
+    isPlaying = !isPlaying;
     if (isPlaying) {
-      stopMusic();
+      audioBtn.classList.add('playing');
+      audioStatusText.textContent = 'Playing';
+      startAmbientAtmosphere();
     } else {
-      startMusic();
+      audioBtn.classList.remove('playing');
+      audioStatusText.textContent = 'Atmosphere';
+      stopAmbientAtmosphere();
     }
   });
-}
+
+  // ==========================================
+  // 6. 3D TILT EFFECT ON MEMORY CARDS
+  // ==========================================
+  function setupTilt(elementId, maxTilt = 8) {
+    const card = document.getElementById(elementId);
+    if (!card) return;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const tiltX = ((y - centerY) / centerY) * -maxTilt;
+      const tiltY = ((x - centerX) / centerX) * maxTilt;
+
+      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  }
+
+  setupTilt('tiltMemoryCard', 6);
+  setupTilt('tiltPolaroid', 10);
+
+  // ==========================================
+  // 7. WAX SEAL INTERACTION
+  // ==========================================
+  const waxSealBtn = document.getElementById('waxSealBtn');
+  if (waxSealBtn) {
+    waxSealBtn.addEventListener('click', () => {
+      waxSealBtn.style.transform = 'scale(1.2) rotate(15deg)';
+      const label = waxSealBtn.querySelector('.wax-label');
+      if (label) label.textContent = 'Unsealed ♡';
+      setTimeout(() => {
+        waxSealBtn.style.transform = 'scale(1) rotate(0deg)';
+      }, 400);
+    });
+  }
+
+  // ==========================================
+  // 8. PRIVATE SILENT REACTION WIDGET
+  // ==========================================
+  const reactionChips = document.querySelectorAll('.reaction-chip');
+  const reactionFeedback = document.getElementById('reactionFeedback');
+  const savedReact = localStorage.getItem('aarti_reaction');
+
+  if (savedReact) {
+    reactionChips.forEach(chip => {
+      if (chip.getAttribute('data-react') === savedReact) {
+        chip.classList.add('selected');
+        if (reactionFeedback) reactionFeedback.textContent = "Thank you for reading peacefully. ♡";
+      }
+    });
+  }
+
+  reactionChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      reactionChips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      const val = chip.getAttribute('data-react');
+      localStorage.setItem('aarti_reaction', val);
+      if (reactionFeedback) {
+        reactionFeedback.textContent = "Saved silently. Take all the time and peace you need. ♡";
+      }
+    });
+  });
+
+});

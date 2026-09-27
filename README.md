@@ -1,14 +1,13 @@
 # For Aarti ❤️
 
-A personal, heartfelt, and sincere single-page website dedicated to Aarti.
+A personal, heartfelt, and sincere message dedicated to Aarti.
 
-## 🌸 Aesthetic & Design
-- **Theme**: Soft Romantic Pink, Warm Blush & Deep Rose with Warm Cream typography
-- **Typography**: Cormorant Garamond, Plus Jakarta Sans, Caveat, Alex Brush
-- **Interactivity**: Ambient Canvas stardust particles, Web Audio lo-fi chord soundscape, smooth scroll reveals, and WhatsApp CTA.
+## ✨ Features
+- **Cinematic Experience**: Ethereal Midnight & Rose Gold visual aesthetics with glassmorphic cards and subtle animations.
+- **Generative Atmosphere**: In-browser Web Audio API soundscape for ambient background tones.
+- **Interactive Stardust & Rose Petals**: Canvas particle animation.
+- **Interactive Memories & Letter**: 3D parallax memory cards and an interactive wax-sealed letter.
+- **Direct Reach-Out Action**: Direct connection for sincere, pressure-free communication.
 
-## 📂 Project Structure
-- `index.html` — Main website structure and content
-- `styles.css` — Romantic pink design system, animations, responsive layout
-- `script.js` — Ambient audio synthesizer, canvas particle engine, scroll triggers
-- `assets/` — Cinematic photography assets
+## 🚀 Live Preview
+Open `index.html` in any modern web browser or serve locally.

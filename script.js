@@ -1,20 +1,27 @@
 /**
- * AARTI - HIGH PERFORMANCE JAVASCRIPT
+ * AARTI - ZERO-LATENCY JAVASCRIPT
  * Ambient Audio Synthesizer, Optimized Canvas Particle Engine & Scroll Triggers
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+// Dual-lifecycle execution guard: guarantees execution regardless of when the script loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
+function initApp() {
   initScrollProgress();
   initIntersectionObserver();
   initAmbientAudio();
 
-  // Defer canvas animation to idle callback for instantaneous page paint
+  // Initialize canvas when browser is idle or after a short delay
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(initAmbientCanvas, { timeout: 1000 });
+    requestIdleCallback(initAmbientCanvas, { timeout: 800 });
   } else {
     setTimeout(initAmbientCanvas, 100);
   }
-});
+}
 
 /* ==========================================================
    1. SCROLL PROGRESS BAR (Passive Event Listener)
@@ -45,19 +52,33 @@ function initIntersectionObserver() {
   const revealElements = document.querySelectorAll('.reveal');
   if (!revealElements.length) return;
 
+  // Fallback for browsers without IntersectionObserver
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('active'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        obs.unobserve(entry.target); // Unobserve once revealed to save CPU cycles
+        obs.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -30px 0px'
+    threshold: 0.05,
+    rootMargin: '100px 0px 100px 0px'
   });
 
-  revealElements.forEach(el => observer.observe(el));
+  revealElements.forEach(el => {
+    // Check if element is already in viewport on initial load
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      el.classList.add('active');
+    } else {
+      observer.observe(el);
+    }
+  });
 }
 
 /* ==========================================================
@@ -71,7 +92,7 @@ function initAmbientCanvas() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
-  const particleCount = Math.min(Math.floor(window.innerWidth / 25), 45);
+  const particleCount = Math.min(Math.floor(window.innerWidth / 25), 40);
   const particles = [];
 
   const colors = [
@@ -90,8 +111,8 @@ function initAmbientCanvas() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
       this.size = Math.random() * 2.0 + 0.8;
-      this.speedY = -(Math.random() * 0.28 + 0.05);
-      this.speedX = (Math.random() - 0.5) * 0.18;
+      this.speedY = -(Math.random() * 0.25 + 0.05);
+      this.speedX = (Math.random() - 0.5) * 0.16;
       this.colorBase = colors[Math.floor(Math.random() * colors.length)];
       this.alpha = Math.random() * 0.35 + 0.12;
       this.alphaSpeed = Math.random() * 0.005 + 0.002;
@@ -103,8 +124,8 @@ function initAmbientCanvas() {
       this.x += this.speedX;
 
       this.alpha += this.alphaSpeed * this.alphaDirection;
-      if (this.alpha > 0.42) {
-        this.alpha = 0.42;
+      if (this.alpha > 0.40) {
+        this.alpha = 0.40;
         this.alphaDirection = -1;
       } else if (this.alpha < 0.08) {
         this.alpha = 0.08;
@@ -144,7 +165,6 @@ function initAmbientCanvas() {
 
   animate();
 
-  // Pause rendering when user switches tabs to save 100% CPU/battery
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       isTabActive = false;
@@ -155,7 +175,6 @@ function initAmbientCanvas() {
     }
   });
 
-  // Debounced resize listener
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -180,12 +199,11 @@ function initAmbientAudio() {
   let synthInterval = null;
   let masterGain = null;
 
-  // Chord frequencies (Nostalgic progression: Fmaj7 -> G6 -> Em7 -> Am7)
   const chords = [
-    [174.61, 220.00, 261.63, 329.63], // Fmaj7 (F3, A3, C4, E4)
-    [196.00, 246.94, 293.66, 392.00], // G6 (G3, B3, D4, G4)
-    [164.81, 196.00, 246.94, 329.63], // Em7 (E3, G3, B3, E4)
-    [220.00, 261.63, 329.63, 392.00]  // Am7 (A3, C4, E4, G4)
+    [174.61, 220.00, 261.63, 329.63], // Fmaj7
+    [196.00, 246.94, 293.66, 392.00], // G6
+    [164.81, 196.00, 246.94, 329.63], // Em7
+    [220.00, 261.63, 329.63, 392.00]  // Am7
   ];
 
   let currentChordIndex = 0;
@@ -198,7 +216,6 @@ function initAmbientAudio() {
     masterGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
     masterGain.gain.linearRampToValueAtTime(0.24, audioCtx.currentTime + 3);
 
-    // Warm Lowpass Filter for lo-fi cinematic feeling
     const filter = audioCtx.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(650, audioCtx.currentTime);

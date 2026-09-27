@@ -11,10 +11,25 @@
   <meta property="og:description" content="A sincere message from someone who truly understands and cares.">
   <meta property="og:type" content="website">
 
-  <!-- Google Fonts Preconnect -->
+  <!-- Performance Diagnostic -->
+  <script>
+    console.time("PAGE_LOAD");
+    document.addEventListener("DOMContentLoaded", () => {
+      console.timeEnd("PAGE_LOAD");
+    });
+  </script>
+
+  <!-- High-Speed Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- Asynchronous Non-blocking Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
+  </noscript>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
   <link rel="stylesheet" href="styles.css">
@@ -143,7 +158,10 @@
       <!-- Main Cinematic Ride Memory -->
       <div class="cinematic-memory-showcase reveal-on-scroll">
         <div class="memory-image-container" id="tiltMemoryCard">
-          <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="cinematic-photo" loading="lazy">
+          <picture>
+            <source srcset="assets/bike-memory.webp" type="image/webp">
+            <img src="assets/bike-memory.jpg" alt="Motorcycle ride memory during sunset" class="cinematic-photo" loading="lazy" decoding="async" width="960" height="536">
+          </picture>
           <div class="image-glass-overlay"></div>
           <div class="image-badge-pill">
             <span class="badge-dot"></span>
@@ -257,7 +275,10 @@
         <div class="polaroid-feature-frame" id="tiltPolaroid">
           <div class="polaroid-inner-white">
             <div class="polaroid-img-wrapper">
-              <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-real-img" loading="lazy">
+              <picture>
+                <source srcset="assets/relive-day.webp" type="image/webp">
+                <img src="assets/relive-day.jpg" alt="A quiet pause on the road" class="polaroid-real-img" loading="lazy" decoding="async" width="800" height="597">
+              </picture>
             </div>
             <div class="polaroid-handwritten-caption">
               <h4 class="polaroid-title">A moment I wish I could pause.</h4>
@@ -272,7 +293,10 @@
     <section id="relive" class="section-container relive-wide-section">
       <div class="relive-cinematic-stage reveal-on-scroll">
         <div class="relive-background-art">
-          <img src="assets/relive-day.jpg" alt="Scenic road at dusk" class="relive-img" loading="lazy">
+          <picture>
+            <source srcset="assets/relive-day.webp" type="image/webp">
+            <img src="assets/relive-day.jpg" alt="Scenic road at dusk" class="relive-img" loading="lazy" decoding="async" width="800" height="597">
+          </picture>
           <div class="relive-backdrop-mask"></div>
         </div>
 
